@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Footer from './container/Footer/Footer';
 import Header from './container/Header/Header';
 import Card from './components/Card/Card';
+import Details from './container/Details/Details';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/monitors' element={<Card />} />
           <Route path='/mouses' element={<Card />} />
           <Route path='/keyboards' element={<Card />} />
+          <Route path='/details' element={<Details />} />
         </Routes>
       </main>
       <Footer />
