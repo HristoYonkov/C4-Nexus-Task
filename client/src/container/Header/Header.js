@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from "react-router-dom";
 import { HiMenu, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 
@@ -15,9 +16,9 @@ const Header = () => {
                 <img src={logo} alt="logo" />
             </div>
             <ul className='app__nav-links'>
-                {['computers', 'monitors', 'mouses', 'keyboards'].map((item) => (
+                {['laptops', 'monitors', 'mouses', 'keyboards'].map((item) => (
                     <li key={`link-${item}`} className='app__flex p-text'>
-                        <a href={`/${item}`}>{item}</a>
+                        <NavLink to={`/${item}`}>{item}</NavLink>
                         <div></div>
                     </li>
                 ))}
@@ -33,9 +34,9 @@ const Header = () => {
                     >
                         <HiX onClick={() => setToggle(false)} />
                         <ul>
-                            {['computers', 'monitors', 'mouses', 'keyboards'].map((item) => (
+                            {['laptops', 'monitors', 'mouses', 'keyboards'].map((item) => (
                                 <li key={item}>
-                                    <a href={`/${item}`} onClick={() => setToggle(false)}>{item}</a>
+                                    <NavLink to={`/${item}`} onClick={() => setToggle(false)}>{item}</NavLink>
                                 </li>
                             ))}
                         </ul>
