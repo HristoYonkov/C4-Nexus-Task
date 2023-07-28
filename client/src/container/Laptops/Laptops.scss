@@ -1,0 +1,20 @@
+.app__laptops {
+    width: 60%;
+    background-color: blue;
+    height: 60vh;
+}
+
+.app__laptops-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.app__laptops-descr {
+    background-color: yellow;
+    width: 70%;
+}
+
+.app__laptops-sort {
+    background-color: purple;
+    width: 30%;
+}
