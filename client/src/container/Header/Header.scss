@@ -68,12 +68,16 @@
                 color: var(--secondary-color);
             }
         }
+        a.active {
+            color: var(--secondary-color);
+        }
 
         &:hover {
             div {
                 background: orange;
             }
         }
+
     }
 
     @media screen and (max-width: 900px) {
