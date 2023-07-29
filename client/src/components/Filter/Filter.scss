@@ -1,7 +1,8 @@
 .app__filter {
-    width: 20%;
+    width: 300px;
     background-color: red;
-    height: 60vh;
+    height: 50vh;
+    margin-right: 10px;
     
     @media screen and (max-width: 900px) {
         display: none;

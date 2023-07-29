@@ -33,6 +33,10 @@
     grid-auto-rows: auto;
     grid-gap: 20px;
 
+    @media screen and (max-width: 1600px) {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-rows: auto;
+    }
     @media screen and (max-width: 1200px) {
         grid-template-columns: 1fr 1fr;
         grid-auto-rows: auto;
