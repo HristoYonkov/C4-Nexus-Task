@@ -10,7 +10,7 @@ const Laptops = () => {
             <Filter />
 
             <div className='app__container'>
-                <div className='app__container-top'>
+                <section className='app__container-top'>
                     <div className='app__container-descr'>
                         Category name & description
                     </div>
@@ -18,14 +18,14 @@ const Laptops = () => {
                     <div className='app__container-sort'>
                         SORT
                     </div>
-                </div>
+                </section>
                 
-                <div className='app__container-products'>
+                <section className='app__container-products'>
                     <Card />
                     <Card />
                     <Card />
                     <Card />
-                </div>
+                </section>
             </div>
         </div>
     )
