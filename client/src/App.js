@@ -14,8 +14,7 @@ function App() {
       <Header />
       <main className='app__main'>
         <Routes>
-          <Route path='/' element={<Card />} />
-          <Route path='/laptops' element={<Laptops />} />
+          <Route path='/' element={<Laptops />} />
           <Route path='/monitors' element={<Card />} />
           <Route path='/mouses' element={<Card />} />
           <Route path='/keyboards' element={<Card />} />

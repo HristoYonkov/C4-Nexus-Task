@@ -16,7 +16,11 @@ const Header = () => {
                 <img src={logo} alt="logo" />
             </div>
             <ul className='app__nav-links'>
-                {['laptops', 'monitors', 'mouses', 'keyboards'].map((item) => (
+                <li key={`link-/`} className='app__flex p-text'>
+                    <NavLink to={`/`}>laptops</NavLink>
+                    <div></div>
+                </li>
+                {['monitors', 'mouses', 'keyboards'].map((item) => (
                     <li key={`link-${item}`} className='app__flex p-text'>
                         <NavLink to={`/${item}`}>{item}</NavLink>
                         <div></div>
