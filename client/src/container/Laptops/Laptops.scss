@@ -1,20 +1,44 @@
-.app__laptops {
-    width: 60%;
-    background-color: blue;
-    height: 60vh;
+.app__container {
+    width: 80%;
+    background-color: whitesmoke;
+    min-height: 100vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+
+    @media screen and (max-width: 900px) {
+        width: 100%;
+    }
 }
 
-.app__laptops-top {
+.app__container-top {
     display: flex;
     justify-content: space-between;
 }
 
-.app__laptops-descr {
+.app__container-descr {
     background-color: yellow;
-    width: 70%;
+    width: 60%;
 }
 
-.app__laptops-sort {
+.app__container-sort {
     background-color: purple;
     width: 30%;
+}
+
+.app__container-products {
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: auto;
+    grid-gap: 20px;
+
+    @media screen and (max-width: 1200px) {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: auto;
+    }
+    @media screen and (max-width: 500px) {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+    }
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import './Laptops.scss'
 import Filter from '../../components/Filter/Filter'
+import Card from '../../components/Card/Card'
 
 const Laptops = () => {
 
@@ -8,18 +9,23 @@ const Laptops = () => {
         <div className='wrapper'>
             <Filter />
 
-            <div className='app__laptops'>
-                <div className='app__laptops-top'>
-                    <div className='app__laptops-descr'>
+            <div className='app__container'>
+                <div className='app__container-top'>
+                    <div className='app__container-descr'>
                         Category name & description
                     </div>
 
-                    <div className='app__laptops-sort'>
+                    <div className='app__container-sort'>
                         SORT
                     </div>
                 </div>
-
-                LAPTOPS
+                
+                <div className='app__container-products'>
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                </div>
             </div>
         </div>
     )
