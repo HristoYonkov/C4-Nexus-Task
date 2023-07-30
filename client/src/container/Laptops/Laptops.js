@@ -17,7 +17,7 @@ const Laptops = () => {
                     <div className='app__container-descr'>
                         <div className='app__container__descr-heading'>
                             <h1>Laptops</h1>
-                            <p>'Smart-Shopping' offers one of the best pricing for laptops!</p>
+                            <p> <span>'Smart-Shopping'</span> offers one of the best pricing for laptops!</p>
                         </div>
 
                         <div className='app__container__descr-count'>
