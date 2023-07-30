@@ -1,15 +1,19 @@
-import './App.scss';
+import { useState } from 'react';
 import { Route, Routes } from "react-router-dom";
+import './App.scss';
 
 import Footer from './container/Footer/Footer';
 import Header from './container/Header/Header';
-import Card from './components/Card/Card';
 import Laptops from './container/Laptops/Laptops';
 import Monitors from './container/Monitors/Monitors';
 import Phones from './container/Phones/Phones';
 import Tablets from './container/Tablets/Tablets';
 
+import laptopsData from './data/laptopsData';
+
 function App() {
+  const [dataState, setDataState] = useState(laptopsData);
+  console.log(dataState);
 
   return (
     <div className="app">

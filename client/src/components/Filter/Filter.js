@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import './Filter.scss';
 
 const Filter = () => {
-  const [filter, setFilter] = useState({
-    priceRange: 1
+  const [filteredPrice, setFilteredPrice] = useState({
+    price: 1
   });
 
   const handleOnchange = (e) => {
+    console.log(e.target);
     const value = e.target.value
     const name = e.target.name
-    setFilter(prev => ({ ...prev, [name]: value }));
+    setFilteredPrice(prev => ({ ...prev, [name]: value }));
   }
 
   return (
@@ -34,8 +35,8 @@ const Filter = () => {
 
       <div className='app__filter-price'>
         <h4>Price</h4>
-        <input name='priceRange' value={filter.priceRange} id='rangeValue' onChange={handleOnchange} type="range" min="1" max="200" />
-        <label id="rangeValue"><p>${filter.priceRange} - $200</p></label>
+        <input name='price' value={filteredPrice.price} id='price' onChange={handleOnchange} type="range" min="1" max="200" />
+        <label id="price"><p>${filteredPrice.price} - $200</p></label>
       </div>
     </section>
   )

@@ -14,11 +14,9 @@ const Card = () => {
                     <span className="card__details-tag">Laptop</span>
 
                     <div className='card__details-pricing'>
-
                         <span className="card__details-discount">-30%</span>
                         <span className="card__details-price" style={{ textDecoration: 'line-through' }}>$354.00</span>
                         <span className="card__details-price">$254.00</span>
-
                     </div>
 
                     <div className="card__details-name">Asus Vivobook</div>

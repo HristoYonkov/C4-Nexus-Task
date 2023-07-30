@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import './Laptops.scss'
 import Filter from '../../components/Filter/Filter'
 import Card from '../../components/Card/Card'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
-import laptops_data from '../../data/laptopsData';
 
 const Laptops = () => {
-    console.log(laptops_data);
+
+    useEffect(() => {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }, []);
+
     return (
         <div className='wrapper'>
             <Filter />
@@ -41,9 +44,6 @@ const Laptops = () => {
                 </section>
 
                 <section className='app__container-products'>
-                    <Card />
-                    <Card />
-                    <Card />
                     <Card />
                 </section>
             </div>
