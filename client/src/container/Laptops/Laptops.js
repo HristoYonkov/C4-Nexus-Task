@@ -21,7 +21,7 @@ const Laptops = () => {
                         </div>
 
                         <div className='app__container__descr-count'>
-                            <p><span>4</span> products in store</p>
+                            <p><span>4</span> Products in store</p>
                         </div>
                     </div>
 
