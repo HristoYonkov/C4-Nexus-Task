@@ -15,15 +15,24 @@
 .app__container-top {
     display: flex;
     justify-content: space-between;
+    height: 50px;
 }
 
 .app__container-descr {
-    background-color: yellow;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     width: 60%;
+
+    p {
+        font-size: 13px;
+    }
+    span {
+        font-size: 20px;
+    }
 }
 
 .app__container-sort {
-    background-color: purple;
     width: 30%;
 }
 
