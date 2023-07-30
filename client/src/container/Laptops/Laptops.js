@@ -6,7 +6,8 @@ import Card from '../../components/Card/Card'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
 
-const Laptops = () => {
+const Laptops = (props) => {
+    console.log(props.state);
 
     useEffect(() => {
         window.scrollTo({top: 0, behavior: 'smooth'});
@@ -26,7 +27,7 @@ const Laptops = () => {
                         </div>
 
                         <div className='app__container__descr-count'>
-                            <p><span>4</span> Products in store</p>
+                            <p><span>{props.state.length}</span> Products in store</p>
                         </div>
                     </div>
 
