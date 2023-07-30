@@ -1,7 +1,16 @@
-import React from 'react'
-import './Filter.scss'
+import React, { useState } from 'react';
+import './Filter.scss';
 
 const Filter = () => {
+  const [filter, setFilter] = useState({
+    priceRange: 1
+  });
+
+  const handleOnchange = (e) => {
+    const value = e.target.value
+    const name = e.target.name
+    setFilter(prev => ({ ...prev, [name]: value }));
+  }
 
   return (
     <section className='app__filter'>
@@ -13,8 +22,8 @@ const Filter = () => {
         </div>
 
         <div>
-          <input type="checkbox" />
-          <p>Black</p>
+          <input id='black' type="checkbox" />
+          <label htmlFor='black'>Black</label>
         </div>
 
         <div>
@@ -25,8 +34,8 @@ const Filter = () => {
 
       <div class='app__filter-price'>
         <h4>Price</h4>
-        <input type="range" min="0" max="200" />
-        <p id="rangeValue">$0 - $200</p>
+        <input name='priceRange' value={filter.priceRange} id='rangeValue' onChange={handleOnchange} type="range" min="0" max="200" />
+        <label id="rangeValue"><p>${filter.priceRange} - $200</p></label>
       </div>
     </section>
   )
