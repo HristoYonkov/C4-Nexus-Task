@@ -1,11 +1,11 @@
 import React from 'react'
-import './Laptops.scss'
+import './Monitors.scss'
 import Filter from '../../components/Filter/Filter'
 import Card from '../../components/Card/Card'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
 
-const Laptops = () => {
+const Monitors = () => {
 
     return (
         <div className='wrapper'>
@@ -16,8 +16,8 @@ const Laptops = () => {
 
                     <div className='app__container-descr'>
                         <div className='app__container__descr-heading'>
-                            <h1>Laptops</h1>
-                            <p> <span>'Smart-Shopping'</span> offers one of the best pricie for laptops!</p>
+                            <h1>Monitors</h1>
+                            <p> <span>'Smart-Shopping'</span> offers one of the best pricie for monitors!</p>
                         </div>
 
                         <div className='app__container__descr-count'>
@@ -28,12 +28,12 @@ const Laptops = () => {
                     <div className='app__container-sort'>
                         <div>
 
-                        <FilterMobile />
+                            <FilterMobile />
                         </div>
-                        
+
                         <div>
 
-                        <Dropdown />
+                            <Dropdown />
                         </div>
                     </div>
                 </section>
@@ -49,4 +49,4 @@ const Laptops = () => {
     )
 }
 
-export default Laptops
+export default Monitors

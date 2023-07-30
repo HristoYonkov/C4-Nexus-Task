@@ -20,7 +20,7 @@ const Header = () => {
                     <NavLink to={`/`}>laptops</NavLink>
                     <div></div>
                 </li>
-                {['monitors', 'mouses', 'keyboards'].map((item) => (
+                {['monitors', 'tablets', 'phones'].map((item) => (
                     <li key={`link-${item}`} className='app__flex p-text'>
                         <NavLink to={`/${item}`}>{item}</NavLink>
                         <div></div>
@@ -41,7 +41,7 @@ const Header = () => {
                             <li key={`link-/`} className='app__flex p-text'>
                                 <NavLink to={`/`} onClick={() => setToggle(false)}>laptops</NavLink>
                             </li>
-                            {['monitors', 'mouses', 'keyboards'].map((item) => (
+                            {['monitors', 'tablets', 'phones'].map((item) => (
                                 <li key={item}>
                                     <NavLink to={`/${item}`} onClick={() => setToggle(false)}>{item}</NavLink>
                                 </li>

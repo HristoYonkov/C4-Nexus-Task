@@ -34,7 +34,7 @@ const Filter = () => {
 
       <div className='app__filter-price'>
         <h4>Price</h4>
-        <input name='priceRange' value={filter.priceRange} id='rangeValue' onChange={handleOnchange} type="range" min="0" max="200" />
+        <input name='priceRange' value={filter.priceRange} id='rangeValue' onChange={handleOnchange} type="range" min="1" max="200" />
         <label id="rangeValue"><p>${filter.priceRange} - $200</p></label>
       </div>
     </section>
