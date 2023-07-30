@@ -1,12 +1,14 @@
 import React from 'react'
+
 import './Laptops.scss'
 import Filter from '../../components/Filter/Filter'
 import Card from '../../components/Card/Card'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
+import laptops_data from '../../data/laptopsData';
 
 const Laptops = () => {
-
+    console.log(laptops_data);
     return (
         <div className='wrapper'>
             <Filter />
