@@ -33,7 +33,7 @@
 
 .app__container__descr-heading {
     display: flex;
-    // justify-content: space-between;
+    justify-content: center;
     align-items: center;
     align-items: end;
 
@@ -60,12 +60,15 @@
 }
 
 .app__container__descr-count {
+    
     p {
         font-size: 12px;
+        padding: 5px;
     }
 
     span {
-        font-size: 20px;
+        margin-right: 5px;
+        font-size: 25px;
     }
 }
 
