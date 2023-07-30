@@ -26,9 +26,15 @@ const Laptops = () => {
                     </div>
 
                     <div className='app__container-sort'>
+                        <div>
+
                         <FilterMobile />
+                        </div>
                         
+                        <div>
+
                         <Dropdown />
+                        </div>
                     </div>
                 </section>
 
