@@ -3,6 +3,7 @@ import './Laptops.scss'
 import Filter from '../../components/Filter/Filter'
 import Card from '../../components/Card/Card'
 import Dropdown from '../../components/Dropdown/Dropdown'
+import FilterMobile from '../../components/FilterMobile/FilterMobile'
 
 const Laptops = () => {
 
@@ -25,6 +26,7 @@ const Laptops = () => {
                     </div>
 
                     <div className='app__container-sort'>
+                        <FilterMobile />
                         <Dropdown />
                     </div>
                 </section>
