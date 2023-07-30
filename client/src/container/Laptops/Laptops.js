@@ -12,16 +12,23 @@ const Laptops = () => {
 
             <div className='app__container'>
                 <section className='app__container-top'>
+
                     <div className='app__container-descr'>
-                        <h1>Laptops</h1>
-                        <p><span>4</span> products in store</p>
+                        <div className='app__container__descr-heading'>
+                            <h1>Laptops</h1>
+                            <p>'Smart-shopping' offers one of the best pricing for laptops!</p>
+                        </div>
+
+                        <div className='app__container__descr-count'>
+                            <p><span>4</span> products in store</p>
+                        </div>
                     </div>
 
                     <div className='app__container-sort'>
                         <Dropdown />
                     </div>
                 </section>
-                
+
                 <section className='app__container-products'>
                     <Card />
                     <Card />
