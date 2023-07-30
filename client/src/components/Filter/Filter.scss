@@ -5,12 +5,13 @@
     height: 50vh;
     margin-right: 10px;
     
-    @media screen and (max-width: 900px) {
-        display: none;
-    }
     h4 {
         padding-top: 20px;
         margin: 0 0 10px 20px;
+    }
+    
+    @media screen and (max-width: 900px) {
+        display: none;
     }
 }
 
