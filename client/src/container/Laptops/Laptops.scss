@@ -78,8 +78,11 @@
 }
 
 .app__container-sort {
+    display: flex;
+    flex-direction: column;
     padding-left: 20px;
     width: 30%;
+    gap: 10px;
     @media screen and (max-width: 500px) {
         width: 50%;
     }

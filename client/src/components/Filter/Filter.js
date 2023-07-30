@@ -17,8 +17,8 @@ const Filter = () => {
       <div className='app__filter-colors'>
         <h4>Colors</h4>
         <div>
-          <input type="checkbox" />
-          <p>White</p>
+        <input id='white' type="checkbox" />
+          <label htmlFor='white'>White</label>
         </div>
 
         <div>
@@ -27,12 +27,12 @@ const Filter = () => {
         </div>
 
         <div>
-          <input type="checkbox" />
-          <p>Blue</p>
+        <input id='blue' type="checkbox" />
+          <label htmlFor='blue'>Blue</label>
         </div>
       </div>
 
-      <div class='app__filter-price'>
+      <div className='app__filter-price'>
         <h4>Price</h4>
         <input name='priceRange' value={filter.priceRange} id='rangeValue' onChange={handleOnchange} type="range" min="0" max="200" />
         <label id="rangeValue"><p>${filter.priceRange} - $200</p></label>

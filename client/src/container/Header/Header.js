@@ -38,7 +38,10 @@ const Header = () => {
                     >
                         <HiX onClick={() => setToggle(false)} />
                         <ul>
-                            {['laptops', 'monitors', 'mouses', 'keyboards'].map((item) => (
+                            <li key={`link-/`} className='app__flex p-text'>
+                                <NavLink to={`/`} onClick={() => setToggle(false)}>laptops</NavLink>
+                            </li>
+                            {['monitors', 'mouses', 'keyboards'].map((item) => (
                                 <li key={item}>
                                     <NavLink to={`/${item}`} onClick={() => setToggle(false)}>{item}</NavLink>
                                 </li>

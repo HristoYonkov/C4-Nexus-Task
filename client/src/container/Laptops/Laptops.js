@@ -27,6 +27,7 @@ const Laptops = () => {
 
                     <div className='app__container-sort'>
                         <FilterMobile />
+                        
                         <Dropdown />
                     </div>
                 </section>
