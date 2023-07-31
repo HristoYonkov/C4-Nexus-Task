@@ -24,7 +24,7 @@ function App() {
             <Laptops
               state={laptopsState}
               originalState={backupLaptops}
-              changeState={setLaptopsState}
+              currentState={setLaptopsState}
             />}
           />
           
