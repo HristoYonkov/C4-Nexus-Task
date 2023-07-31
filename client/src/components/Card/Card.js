@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaRegStar, FaStar } from 'react-icons/fa'
-
+import { nanoid } from 'nanoid';
 import './Card.scss'
 
 const Card = (props) => {
@@ -9,6 +9,18 @@ const Card = (props) => {
     const calculateDiscount = (disc) => {
         const discount = item.price - (item.price / 100 * Number(disc));
         return discount;
+    }
+
+    const calculateStars = (rating) => {
+        let ratingArray = [];
+        for (let i = 1; i <= 5; i++) {
+            if (i <= rating) {
+                ratingArray.push(<FaStar key={nanoid()} />);
+            } else {
+                ratingArray.push(<FaRegStar key={nanoid()} />);
+            }
+        }
+        return ratingArray;
     }
 
 
@@ -27,7 +39,7 @@ const Card = (props) => {
                                 <span className="card__details-price" style={{ textDecoration: 'line-through' }}>${item.price}</span>
                             </>
                         )}
-                        
+
                         <span className="card__details-price">${calculateDiscount(item.discount)}</span>
                     </div>
 
@@ -36,12 +48,7 @@ const Card = (props) => {
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
                     <div className='card__details-stars'>
-                        {}
-                        <FaStar />
-                        <FaStar />
-                        <FaStar />
-                        <FaRegStar />
-                        <FaRegStar />
+                        {calculateStars(item.rating).map(rating => rating)}   
                     </div>
                     <button>Add to Cart</button>
                 </div>
