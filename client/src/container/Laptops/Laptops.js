@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import './Laptops.scss'
 import Filter from '../../components/Filter/Filter'
@@ -7,10 +7,10 @@ import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
 
 const Laptops = (props) => {
-    console.log(props.state);
+    const [laptopsData, setLaptopsData] = useState(props.state)
 
     useEffect(() => {
-        window.scrollTo({top: 0, behavior: 'smooth'});
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
 
     return (
@@ -34,18 +34,20 @@ const Laptops = (props) => {
                     <div className='app__container-sort'>
                         <div>
 
-                        <FilterMobile />
+                            <FilterMobile />
                         </div>
-                        
+
                         <div>
 
-                        <Dropdown />
+                            <Dropdown />
                         </div>
                     </div>
                 </section>
 
                 <section className='app__container-products'>
-                    <Card />
+                    {laptopsData.map((item) =>
+                        <Card key={item.id} item={item} />
+                    )}
                 </section>
             </div>
         </div>
