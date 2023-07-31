@@ -15,7 +15,7 @@ const laptops_data = [
         id: nanoid(),
         name: 'Asus ROG',
         category: 'Laptop',
-        imageUrl: 'https://www.asus.com/media/Odin/Websites/global/Series/12.png',
+        imageUrl: 'https://laptop.bg/system/images/338446/normal/asus_rog_strix_g17_g713rsll008w.jpg',
         rating: 5,
         price: 3000,
         discount: 0,
@@ -39,6 +39,26 @@ const laptops_data = [
         rating: 5,
         price: 2500,
         discount: 10,
+        color: 'black'
+    },
+    {
+        id: nanoid(),
+        name: 'Lenovo Thinkpad',
+        category: 'Laptop',
+        imageUrl: 'https://laptop.bg/system/images/362296/normal/lenovo_thinkpad_p14s_gen_3_21AK0001BM.png',
+        rating: 5,
+        price: 3000,
+        discount: 0,
+        color: 'black'
+    },
+    {
+        id: nanoid(),
+        name: 'HP Elite Dragonfly',
+        category: 'Laptop',
+        imageUrl: 'https://ardes.bg/uploads/original/hp-elite-dragonfly-g3-412404.jpg?_gl=1*16nr4zc*_up*MQ..&gclid=CjwKCAjwt52mBhB5EiwA05YKozHfhji-KT7E3swK40AAxVOiatCLMLienuuhE43tqfes221WFaGMJhoCsQkQAvD_BwE',
+        rating: 5,
+        price: 5000,
+        discount: 5,
         color: 'black'
     },
 ]
