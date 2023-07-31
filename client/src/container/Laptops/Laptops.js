@@ -6,16 +6,23 @@ import Card from '../../components/Card/Card'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
 
-const Laptops = (props) => {
-    const [laptopsData, setLaptopsData] = useState(props.state)
-
+const Laptops = ({ state, changeState, originalState }) => {
+    const laptopsData = state;
+    
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
 
+    const minMaxPrice = () => {
+        return {
+            min: laptopsData.reduce((acc, item) => acc = acc < item.price ? acc : item.price),
+            max: laptopsData.reduce((acc, item) => acc = acc > item.price ? acc : item.price)
+        }
+    }
+
     return (
         <div className='wrapper'>
-            <Filter />
+            <Filter minMaxPrice={minMaxPrice()} originalState={originalState} changeState={changeState}/>
 
             <div className='app__container'>
                 <section className='app__container-top'>
@@ -27,19 +34,17 @@ const Laptops = (props) => {
                         </div>
 
                         <div className='app__container__descr-count'>
-                            <p><span>{props.state.length}</span> Products in store</p>
+                            <p><span>{laptopsData?.length}</span> Products in store</p>
                         </div>
                     </div>
 
                     <div className='app__container-sort'>
                         <div>
-
-                            <FilterMobile />
+                            <FilterMobile minMaxPrice={minMaxPrice()}  originalState={originalState} changeState={changeState} />
                         </div>
 
                         <div>
-
-                            <Dropdown />
+                            <Dropdown condition='laptops' />
                         </div>
                     </div>
                 </section>
