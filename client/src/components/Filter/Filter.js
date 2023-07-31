@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import './Filter.scss';
 
-const Filter = ({ changeState, originalState, minMaxPrice }) => {
+const Filter = ({ currentState, originalState, minMaxPrice }) => {
   const [selected, setSelected] = useState([]);
   const [filteredPrice, setFilteredPrice] = useState({
     price: minMaxPrice.min
   });
+
+  const maxPrice = minMaxPrice.max;
+  const minPrice = minMaxPrice.min;
+
+  const handleSeaarch = () => {
+    currentState(state => originalState);
+    currentState((state) => state.filter((x) => x.price <= filteredPrice.price));
+  }
 
   const handleChangePrice = (e) => {
     const value = e.target.value
@@ -14,10 +22,13 @@ const Filter = ({ changeState, originalState, minMaxPrice }) => {
   }
 
   const handleChangeColors = (e) => {
+    setSelected(e.target.value);
+
     if (e.target.checked) {
-      changeState((state) => state.filter((x) => x.color !== 'white'));
+      currentState((state) => state.filter((x) => x.color === selected.includes('white')));
+      console.log('checked');
     } else {
-      changeState(state => originalState);
+      currentState(state => originalState);
     }
   }
 
@@ -43,9 +54,10 @@ const Filter = ({ changeState, originalState, minMaxPrice }) => {
 
       <div className='app__filter-price'>
         <h4>Price</h4>
-        <input name='price' value={filteredPrice.price} id='price' onInput={handleChangePrice} type="range" min={minMaxPrice.min} max={minMaxPrice.max} />
-        <label id="price"><p>${filteredPrice.price} - ${minMaxPrice.max}</p></label>
+        <input name='price' value={filteredPrice.price} id='price' onInput={handleChangePrice} type="range" min={minPrice} max={maxPrice} />
+        <label id="price"><p>${filteredPrice.price} - ${maxPrice}</p></label>
       </div>
+      <button onClick={() => handleSeaarch()}>Search</button>
     </section>
   )
 }
