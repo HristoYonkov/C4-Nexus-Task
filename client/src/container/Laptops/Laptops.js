@@ -6,23 +6,23 @@ import Card from '../../components/Card/Card'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
 
-const Laptops = ({ state, changeState, originalState }) => {
+const Laptops = ({ state, currentState, originalState }) => {
     const laptopsData = state;
-    
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
 
     const minMaxPrice = () => {
         return {
-            min: laptopsData.reduce((acc, item) => acc = acc < item.price ? acc : item.price),
-            max: laptopsData.reduce((acc, item) => acc = acc > item.price ? acc : item.price)
+            min: originalState.reduce((acc, item) => acc < item.price ? acc : item.price),
+            max: originalState.reduce((acc, item) => acc > item.price ? acc : item.price)
         }
     }
 
     return (
         <div className='wrapper'>
-            <Filter minMaxPrice={minMaxPrice()} originalState={originalState} changeState={changeState}/>
+            <Filter minMaxPrice={minMaxPrice()} originalState={originalState} currentState={currentState} />
 
             <div className='app__container'>
                 <section className='app__container-top'>
@@ -40,7 +40,7 @@ const Laptops = ({ state, changeState, originalState }) => {
 
                     <div className='app__container-sort'>
                         <div>
-                            <FilterMobile minMaxPrice={minMaxPrice()}  originalState={originalState} changeState={changeState} />
+                            <FilterMobile minMaxPrice={minMaxPrice()} originalState={originalState} currentState={currentState} />
                         </div>
 
                         <div>
@@ -54,6 +54,7 @@ const Laptops = ({ state, changeState, originalState }) => {
                         <Card key={item.id} item={item} />
                     )}
                 </section>
+                <button >Load More</button>
             </div>
         </div>
     )
