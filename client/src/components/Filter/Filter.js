@@ -33,7 +33,7 @@ const Filter = ({ currentState, originalState, minMaxPrice }) => {
       currentState((state) => state.filter((x) => x.price >= filteredPrice.price));
     }
     
-  }, [selected, filteredPrice])
+  }, [selected, filteredPrice]);
   
 
   return (

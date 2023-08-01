@@ -7,14 +7,23 @@ import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
 
 const Laptops = ({ state, currentState, originalState }) => {
+    const [laptops, setLaptops] = useState(state);
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
 
+    useEffect(() => {
+        setLaptops(state.slice(0, 4))
+    }, [state]);
+
+    const loadMoreHandler = () => {
+        setLaptops(curr => [...curr, ...state.slice(curr.length)])
+    }
+
     const minMaxPrice = () => {
         const min = originalState.map(x => x.price);
-        
+
         return {
             min: min.reduce((acc, item) => acc < item ? acc : item),
             max: min.reduce((acc, item) => acc > item ? acc : item)
@@ -45,17 +54,19 @@ const Laptops = ({ state, currentState, originalState }) => {
                         </div>
 
                         <div>
-                            <Dropdown condition='laptops' />
+                            <Dropdown currentState={currentState} />
                         </div>
                     </div>
                 </section>
 
                 <section className='app__container-products'>
-                    {state.map((item) =>
+                    {laptops.map((item) =>
                         <Card key={item.id} item={item} />
                     )}
                 </section>
-                <button >Load More</button>
+                {state.length !== laptops.length &&
+                    <button className='showMore' onClick={() => loadMoreHandler()} >Load More</button>
+                }
             </div>
         </div>
     )
