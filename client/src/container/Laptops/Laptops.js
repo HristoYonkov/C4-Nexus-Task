@@ -7,7 +7,6 @@ import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
 
 const Laptops = ({ state, currentState, originalState }) => {
-    const laptopsData = state;
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -15,7 +14,7 @@ const Laptops = ({ state, currentState, originalState }) => {
 
     const minMaxPrice = () => {
         const min = originalState.map(x => x.price);
-        console.log(min);
+        
         return {
             min: min.reduce((acc, item) => acc < item ? acc : item),
             max: min.reduce((acc, item) => acc > item ? acc : item)
@@ -36,7 +35,7 @@ const Laptops = ({ state, currentState, originalState }) => {
                         </div>
 
                         <div className='app__container__descr-count'>
-                            <p><span>{laptopsData?.length}</span> Products in store</p>
+                            <p><span>{state?.length}</span> Products in store</p>
                         </div>
                     </div>
 
@@ -52,7 +51,7 @@ const Laptops = ({ state, currentState, originalState }) => {
                 </section>
 
                 <section className='app__container-products'>
-                    {laptopsData.map((item) =>
+                    {state.map((item) =>
                         <Card key={item.id} item={item} />
                     )}
                 </section>
