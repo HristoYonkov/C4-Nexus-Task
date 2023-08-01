@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import './Dropdown.scss';
 
-const Dropdown = ({ reset, setlaptops }) => {
+const Dropdown = ({ reset, setProducts }) => {
     const [sortValue, setSortValue] = useState('');
 
     useEffect(() => {
@@ -11,13 +11,13 @@ const Dropdown = ({ reset, setlaptops }) => {
 
     useEffect(() => {
         if (sortValue === 'priceAsc') {
-            setlaptops(state => [...state.sort((a, b) => a.price - b.price)]);
+            setProducts(state => [...state.sort((a, b) => a.price - b.price)]);
         } else if (sortValue === 'priceDesc') {
-            setlaptops(state => [...state.sort((a, b) => b.price - a.price)]);
+            setProducts(state => [...state.sort((a, b) => b.price - a.price)]);
         } else if (sortValue === 'alphaA-Z') {
-            setlaptops(state => [...state.sort((a, b) => a.name.localeCompare(b.name))]);
+            setProducts(state => [...state.sort((a, b) => a.name.localeCompare(b.name))]);
         } else if (sortValue === 'alphaZ-A') {
-            setlaptops(state => [...state.sort((a, b) => b.name.localeCompare(a.name))]);
+            setProducts(state => [...state.sort((a, b) => b.name.localeCompare(a.name))]);
         }
     }, [sortValue]);
 

@@ -1,19 +1,37 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Monitors.scss'
 import Filter from '../../components/Filter/Filter'
 import Card from '../../components/Card/Card'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
 
-const Monitors = () => {
+const Monitors = ({ state, setCurrentState, originalState }) => {
+    const [products, setProducts] = useState(state);
 
     useEffect(() => {
-        window.scrollTo({top: 0, behavior: 'smooth'});
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
+
+    useEffect(() => {
+        setProducts(state.slice(0, 4))
+    }, [state]);
+
+    const loadMoreHandler = () => {
+        setProducts((curr) => [...curr, ...state.slice(curr.length, curr.length + 4)]);
+    }
+
+    const minMaxPrice = () => {
+        const min = originalState.map(x => x.price);
+
+        return {
+            min: min.reduce((acc, item) => acc < item ? acc : item),
+            max: min.reduce((acc, item) => acc > item ? acc : item)
+        }
+    }
 
     return (
         <div className='wrapper'>
-            <Filter />
+            <Filter minMaxPrice={minMaxPrice()} setOriginalState={originalState} setCurrentState={setCurrentState} />
 
             <div className='app__container'>
                 <section className='app__container-top'>
@@ -25,29 +43,29 @@ const Monitors = () => {
                         </div>
 
                         <div className='app__container__descr-count'>
-                            <p><span>4</span> Products in store</p>
+                            <p><span>{products?.length}</span> Products in store</p>
                         </div>
                     </div>
 
                     <div className='app__container-sort'>
                         <div>
-
-                            <FilterMobile />
+                            <FilterMobile minMaxPrice={minMaxPrice()} setOriginalState={originalState} setCurrentState={setCurrentState} />
                         </div>
 
                         <div>
-
-                            <Dropdown />
+                            <Dropdown setProducts={setProducts} reset={state} />
                         </div>
                     </div>
                 </section>
 
                 <section className='app__container-products'>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    {products.map((item) =>
+                        <Card key={item.id} item={item} />
+                    )}
                 </section>
+                {state.length !== products.length &&
+                    <button className='showMore' onClick={() => loadMoreHandler()} >Load More</button>
+                }
             </div>
         </div>
     )

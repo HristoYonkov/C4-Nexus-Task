@@ -7,18 +7,18 @@ import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
 
 const Laptops = ({ state, setCurrentState, originalState }) => {
-    const [laptops, setLaptops] = useState(state);
+    const [products, setProducts] = useState(state);
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
 
     useEffect(() => {
-        setLaptops(state.slice(0, 4))
+        setProducts(state.slice(0, 4))
     }, [state]);
 
     const loadMoreHandler = () => {
-        setLaptops((curr) => [...curr, ...state.slice(curr.length, curr.length + 4)]);
+        setProducts((curr) => [...curr, ...state.slice(curr.length, curr.length + 4)]);
     }
 
     const minMaxPrice = () => {
@@ -44,7 +44,7 @@ const Laptops = ({ state, setCurrentState, originalState }) => {
                         </div>
 
                         <div className='app__container__descr-count'>
-                            <p><span>{laptops?.length}</span> Products in store</p>
+                            <p><span>{products?.length}</span> Products in store</p>
                         </div>
                     </div>
 
@@ -54,17 +54,17 @@ const Laptops = ({ state, setCurrentState, originalState }) => {
                         </div>
 
                         <div>
-                            <Dropdown setlaptops={setLaptops} reset={state} />
+                            <Dropdown setProducts={setProducts} reset={state} />
                         </div>
                     </div>
                 </section>
 
                 <section className='app__container-products'>
-                    {laptops.map((item) =>
+                    {products.map((item) =>
                         <Card key={item.id} item={item} />
                     )}
                 </section>
-                {state.length !== laptops.length &&
+                {state.length !== products.length &&
                     <button className='showMore' onClick={() => loadMoreHandler()} >Load More</button>
                 }
             </div>
