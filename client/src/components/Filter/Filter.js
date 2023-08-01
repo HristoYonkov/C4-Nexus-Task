@@ -61,7 +61,6 @@ const Filter = ({ currentState, originalState, minMaxPrice }) => {
         <input name='price' value={filteredPrice.price} id='price' onInput={handleChangePrice} type="range" min={minPrice} max={maxPrice} />
         <label id="price"><p>${filteredPrice.price} - ${maxPrice}</p></label>
       </div>
-      {/* <button onClick={() => handleSeaarch()}>Search</button> */}
     </section>
   )
 }
