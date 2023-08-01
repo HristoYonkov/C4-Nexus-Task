@@ -6,7 +6,7 @@ import Card from '../../components/Card/Card'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
 
-const Laptops = ({ state, currentState, originalState }) => {
+const Laptops = ({ state, setCurrentState, originalState }) => {
     const [laptops, setLaptops] = useState(state);
 
     useEffect(() => {
@@ -14,11 +14,11 @@ const Laptops = ({ state, currentState, originalState }) => {
     }, []);
 
     useEffect(() => {
-        setLaptops(state.slice(0, 2))
+        setLaptops(state.slice(0, 4))
     }, [state]);
 
     const loadMoreHandler = () => {
-        setLaptops((curr) => [...curr, ...state.slice(curr.length, curr.length + 2)]);
+        setLaptops((curr) => [...curr, ...state.slice(curr.length, curr.length + 4)]);
     }
 
     const minMaxPrice = () => {
@@ -32,7 +32,7 @@ const Laptops = ({ state, currentState, originalState }) => {
 
     return (
         <div className='wrapper'>
-            <Filter minMaxPrice={minMaxPrice()} originalState={originalState} currentState={currentState} />
+            <Filter minMaxPrice={minMaxPrice()} setOriginalState={originalState} setCurrentState={setCurrentState} />
 
             <div className='app__container'>
                 <section className='app__container-top'>
@@ -50,11 +50,11 @@ const Laptops = ({ state, currentState, originalState }) => {
 
                     <div className='app__container-sort'>
                         <div>
-                            <FilterMobile minMaxPrice={minMaxPrice()} originalState={originalState} currentState={currentState} />
+                            <FilterMobile minMaxPrice={minMaxPrice()} setOriginalState={originalState} setCurrentState={setCurrentState} />
                         </div>
 
                         <div>
-                            <Dropdown setCurrentState={setLaptops} />
+                            <Dropdown setlaptops={setLaptops} reset={state} />
                         </div>
                     </div>
                 </section>

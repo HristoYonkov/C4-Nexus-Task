@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Filter.scss';
 
-const Filter = ({ currentState, originalState, minMaxPrice }) => {
+const Filter = ({ setCurrentState, setOriginalState, minMaxPrice }) => {
   const [selected, setSelected] = useState([]);
   const [filteredPrice, setFilteredPrice] = useState({
     price: minMaxPrice.min
@@ -25,12 +25,12 @@ const Filter = ({ currentState, originalState, minMaxPrice }) => {
   }
   
   useEffect(() => {
-    currentState(originalState);
+    setCurrentState(setOriginalState);
+    setCurrentState((state) => state.filter((x) => x.price >= filteredPrice.price));
 
-    currentState((state) => state.filter((x) => x.price >= filteredPrice.price));    
     if (selected.length > 0) {
-      currentState(originalState.filter(({color}) => selected.includes(color)));
-      currentState((state) => state.filter((x) => x.price >= filteredPrice.price));
+      setCurrentState(setOriginalState.filter(({color}) => selected.includes(color)));
+      setCurrentState((state) => state.filter((x) => x.price >= filteredPrice.price));
     }
     
   }, [selected, filteredPrice]);

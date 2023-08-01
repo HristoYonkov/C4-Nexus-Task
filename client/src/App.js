@@ -23,8 +23,8 @@ function App() {
           <Route path='/' element={
             <Laptops
               state={laptopsState}
+              setCurrentState={setLaptopsState}
               originalState={backupLaptops}
-              currentState={setLaptopsState}
             />}
           />
 

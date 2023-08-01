@@ -2,28 +2,38 @@ import React, { useEffect, useState } from 'react';
 
 import './Dropdown.scss';
 
-const Dropdown = ({setCurrentState}) => {
-    const [sort, setSort] = useState('das');
+const Dropdown = ({ reset, setlaptops }) => {
+    const [sortValue, setSortValue] = useState('');
 
     useEffect(() => {
-        if (sort === 'priceAsc') {
-            setCurrentState(state => state.sort((a, b) => a.price - b.price));
-        } else if (sort === 'priceDesc') {
-            setCurrentState(state => state.sort((a, b) => b.price - a.price));
+        setSortValue('');
+    }, [reset])
+
+    useEffect(() => {
+        if (sortValue === 'priceAsc') {
+            setlaptops(state => [...state.sort((a, b) => a.price - b.price)]);
+        } else if (sortValue === 'priceDesc') {
+            setlaptops(state => [...state.sort((a, b) => b.price - a.price)]);
+        } else if (sortValue === 'alphaA-Z') {
+            setlaptops(state => [...state.sort((a, b) => a.name.localeCompare(b.name))]);
+        } else if (sortValue === 'alphaZ-A') {
+            setlaptops(state => [...state.sort((a, b) => b.name.localeCompare(a.name))]);
         }
-    }, [sort]);
+    }, [sortValue]);
 
     const onChangeHandler = (e) => {
-        console.log(e);
-        setSort(e.target.value);
+        setSortValue(e.target.value);
     }
 
     return (
         <div className='app__dropdown'>
             <h4>Sort By</h4>
-            <select onChange={() => onChangeHandler()} name="" id="">
-                <option value="priceAsc">Price Ascending</option>
+            <select onChange={onChangeHandler} name="sort" id="sort" value={sortValue}>
+                <option>Relevance</option>
+                <option value='priceAsc'>Price Ascending</option>
                 <option value="priceDesc">Price Descending</option>
+                <option value='alphaA-Z'>Alphabetical A-Z</option>
+                <option value="alphaZ-A">Alphabetical Z-A</option>
             </select>
         </div>
     )
