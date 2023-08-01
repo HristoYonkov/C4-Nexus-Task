@@ -5,31 +5,40 @@ import { motion } from 'framer-motion';
 
 import './FilterMobile.scss'
 
-const FilterMobile = ({ changeState, originalState, minMaxPrice }) => {
+const FilterMobile = ({ setCurrentState, setOriginalState, minMaxPrice }) => {
     const [toggle, setToggle] = useState(false);
     const [selected, setSelected] = useState([]);
     const [filteredPrice, setFilteredPrice] = useState({
         price: minMaxPrice.min
     });
 
-    const handleSeaarch = () => {
-        changeState((state) => state.filter((x) => x.price <= filteredPrice.price));
+    const maxPrice = minMaxPrice.max;
+    const minPrice = minMaxPrice.min;
+
+    const handleChangeColors = (e) => {
+        if (e.target.checked) {
+            setSelected(state => [...state, e.target.value]);
+        } else {
+            setSelected((state) => state.filter(x => x !== e.target.value));
+        }
     }
 
-    // add button to filters!
     const handleChangePrice = (e) => {
         const value = e.target.value
         const name = e.target.name
         setFilteredPrice(prev => ({ ...prev, [name]: value }));
     }
 
-    const handleChangeColors = (e) => {
-        if (e.target.checked) {
-            changeState((state) => state.filter((x) => x.color !== 'white'));
-        } else {
-            changeState(originalState);
+    useEffect(() => {
+        setCurrentState(setOriginalState);
+        setCurrentState((state) => state.filter((x) => x.price >= filteredPrice.price));
+
+        if (selected.length > 0) {
+            setCurrentState(setOriginalState.filter(({ color }) => selected.includes(color)));
+            setCurrentState((state) => state.filter((x) => x.price >= filteredPrice.price));
         }
-    }
+
+    }, [selected, filteredPrice]);
 
     return (
         <div className='app__filterMobile'>
@@ -68,7 +77,7 @@ const FilterMobile = ({ changeState, originalState, minMaxPrice }) => {
                                 <input name='price' value={filteredPrice.price} id='price' onInput={handleChangePrice} type="range" min={minMaxPrice.min} max={minMaxPrice.max} />
                                 <label id="price"><p>${filteredPrice.price} - ${minMaxPrice.max}</p></label>
                             </div>
-                            <button onClick={() => handleSeaarch()}>Search</button>
+                            {/* <button onClick={() => handleSeaarch()}>Search</button> */}
                         </div>
                     </motion.section>
                 )}
