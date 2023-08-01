@@ -23,19 +23,17 @@ const Filter = ({ currentState, originalState, minMaxPrice }) => {
     const name = e.target.name
     setFilteredPrice(prev => ({ ...prev, [name]: value }));
   }
-  // FILTERS FUNCTIONS!!!
-  const handleSeaarch = () => {
-    currentState(state => originalState);
-    currentState((state) => state.filter((x) => x.price >= filteredPrice.price));
-  }
-
+  
   useEffect(() => {
-    currentState(originalState)
+    currentState(originalState);
+
+    currentState((state) => state.filter((x) => x.price >= filteredPrice.price));    
     if (selected.length > 0) {
       currentState(originalState.filter(({color}) => selected.includes(color)));
+      currentState((state) => state.filter((x) => x.price >= filteredPrice.price));
     }
     
-  }, [selected])
+  }, [selected, filteredPrice])
   
 
   return (
@@ -63,7 +61,7 @@ const Filter = ({ currentState, originalState, minMaxPrice }) => {
         <input name='price' value={filteredPrice.price} id='price' onInput={handleChangePrice} type="range" min={minPrice} max={maxPrice} />
         <label id="price"><p>${filteredPrice.price} - ${maxPrice}</p></label>
       </div>
-      <button onClick={() => handleSeaarch()}>Search</button>
+      {/* <button onClick={() => handleSeaarch()}>Search</button> */}
     </section>
   )
 }
