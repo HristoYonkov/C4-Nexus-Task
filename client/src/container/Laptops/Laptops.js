@@ -14,11 +14,11 @@ const Laptops = ({ state, currentState, originalState }) => {
     }, []);
 
     useEffect(() => {
-        setLaptops(state.slice(0, 4))
+        setLaptops(state.slice(0, 2))
     }, [state]);
 
     const loadMoreHandler = () => {
-        setLaptops(curr => [...curr, ...state.slice(curr.length)])
+        setLaptops((curr) => [...curr, ...state.slice(curr.length, curr.length + 2)]);
     }
 
     const minMaxPrice = () => {
@@ -44,7 +44,7 @@ const Laptops = ({ state, currentState, originalState }) => {
                         </div>
 
                         <div className='app__container__descr-count'>
-                            <p><span>{state?.length}</span> Products in store</p>
+                            <p><span>{laptops?.length}</span> Products in store</p>
                         </div>
                     </div>
 
