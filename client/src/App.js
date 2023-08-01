@@ -14,7 +14,7 @@ import laptopsData from './data/laptopsData';
 function App() {
   const [backupLaptops, setBackupLaptops] = useState(laptopsData);
   const [laptopsState, setLaptopsState] = useState(backupLaptops);
-
+  
   return (
     <div className="app">
       <Header />
@@ -27,7 +27,7 @@ function App() {
               currentState={setLaptopsState}
             />}
           />
-          
+
           <Route path='/monitors' element={<Monitors />} />
           <Route path='/phones' element={<Phones />} />
           <Route path='/tablets' element={<Tablets />} />

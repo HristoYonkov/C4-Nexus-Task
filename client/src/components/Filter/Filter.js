@@ -12,7 +12,7 @@ const Filter = ({ currentState, originalState, minMaxPrice }) => {
 
   const handleSeaarch = () => {
     currentState(state => originalState);
-    currentState((state) => state.filter((x) => x.price <= filteredPrice.price));
+    currentState((state) => state.filter((x) => x.price >= filteredPrice.price));
   }
 
   const handleChangePrice = (e) => {

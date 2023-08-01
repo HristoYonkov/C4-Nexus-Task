@@ -14,9 +14,11 @@ const Laptops = ({ state, currentState, originalState }) => {
     }, []);
 
     const minMaxPrice = () => {
+        const min = originalState.map(x => x.price);
+        console.log(min);
         return {
-            min: originalState.reduce((acc, item) => acc < item.price ? acc : item.price),
-            max: originalState.reduce((acc, item) => acc > item.price ? acc : item.price)
+            min: min.reduce((acc, item) => acc < item ? acc : item),
+            max: min.reduce((acc, item) => acc > item ? acc : item)
         }
     }
 
