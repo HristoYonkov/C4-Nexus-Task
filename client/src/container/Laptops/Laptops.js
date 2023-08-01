@@ -54,7 +54,7 @@ const Laptops = ({ state, currentState, originalState }) => {
                         </div>
 
                         <div>
-                            <Dropdown currentState={currentState} />
+                            <Dropdown setCurrentState={setLaptops} />
                         </div>
                     </div>
                 </section>
