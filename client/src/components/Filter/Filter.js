@@ -6,13 +6,16 @@ const Filter = ({ currentState, originalState, minMaxPrice }) => {
   const [filteredPrice, setFilteredPrice] = useState({
     price: minMaxPrice.min
   });
-
+  
   const maxPrice = minMaxPrice.max;
   const minPrice = minMaxPrice.min;
-
-  const handleSeaarch = () => {
-    currentState(state => originalState);
-    currentState((state) => state.filter((x) => x.price >= filteredPrice.price));
+  
+  const handleChangeColors = (e) => {
+    if (e.target.checked) {
+      setSelected(state => [...state, e.target.value]);
+    } else {
+      setSelected((state) => state.filter(x => x !== e.target.value));
+    }
   }
 
   const handleChangePrice = (e) => {
@@ -20,17 +23,20 @@ const Filter = ({ currentState, originalState, minMaxPrice }) => {
     const name = e.target.name
     setFilteredPrice(prev => ({ ...prev, [name]: value }));
   }
-
-  const handleChangeColors = (e) => {
-    setSelected(e.target.value);
-
-    if (e.target.checked) {
-      currentState((state) => state.filter((x) => x.color === selected.includes('white')));
-      console.log('checked');
-    } else {
-      currentState(state => originalState);
-    }
+  // FILTERS FUNCTIONS!!!
+  const handleSeaarch = () => {
+    currentState(state => originalState);
+    currentState((state) => state.filter((x) => x.price >= filteredPrice.price));
   }
+
+  useEffect(() => {
+    currentState(originalState)
+    if (selected.length > 0) {
+      currentState(originalState.filter(({color}) => selected.includes(color)));
+    }
+    
+  }, [selected])
+  
 
   return (
     <section className='app__filter'>
