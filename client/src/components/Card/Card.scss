@@ -21,7 +21,6 @@
         border-radius: 12px;
         height: 200px;
     }
-
 }
 
 .card__details {
@@ -48,6 +47,7 @@
 
         cursor: pointer;
     }
+
     .card__details-pricing {
         margin-top: 10px;
     }
@@ -63,26 +63,33 @@
     padding: 4px 8px;
     border: 1px solid #e5eaed;
     margin-right: 10px;
-    
+
     border-radius: 50px;
     font-size: 12px;
     font-weight: 600;
     color: #788697;
 }
+
 .card__details-price {
     margin-right: 10px;
     display: inline-block;
 }
+
 .card__details-discount {
     margin-right: 10px;
     color: red;
 }
+
 .card__details-stars {
     margin: 10px 0;
 }
+
 .card__details-name {
     font-size: 24px;
     font-weight: 600;
-
     margin-top: 10px;
+
+    @media screen and (max-width: 900px) {
+        font-size: 20px;
+    }
 }
