@@ -5,7 +5,7 @@ import Card from '../../components/Card/Card'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
 
-const Tablets = ({ state, setCurrentState, originalState }) => {
+const Tablets = ({ state, setCurrentState, originalState, setBackupProducts, setBuyedProducts }) => {
     const [products, setProducts] = useState(state);
     const [interval, setInterval] = useState(4);
 
@@ -27,10 +27,16 @@ const Tablets = ({ state, setCurrentState, originalState }) => {
     }
 
     const minMaxPrice = () => {
-        const min = originalState.map(x => x.price);
+        if (originalState.length > 0) {
+            const min = originalState?.map(x => x.price);
+            return {
+                min: min.reduce((acc, item) => acc < item ? acc : item),
+                max: min.reduce((acc, item) => acc > item ? acc : item)
+            }
+        }
         return {
-            min: min.reduce((acc, item) => acc < item ? acc : item),
-            max: min.reduce((acc, item) => acc > item ? acc : item)
+            min: 0,
+            max: 0
         }
     }
 
@@ -65,10 +71,10 @@ const Tablets = ({ state, setCurrentState, originalState }) => {
 
                 <section className='app__container-products'>
                     {products.slice(0, interval).map((item) =>
-                        <Card key={item.id} item={item} />
+                        <Card key={item.id} item={item} setBackupProducts={setBackupProducts} setBuyedProducts={setBuyedProducts} />
                     )}
                 </section>
-                {interval <= products.length &&
+                {interval < products.length &&
                     <button className='showMore' onClick={() => loadMoreHandler()} >Load More</button>
                 }
             </div>
