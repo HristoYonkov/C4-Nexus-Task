@@ -1,7 +1,6 @@
 .app {
     background-color: var(--primary-color);
     font-family: var(--font-base);
-    // background-color: whitesmoke;
 }
 
 .app__flex {
@@ -23,7 +22,7 @@
 
 .app__main {
     padding-top: 100px;
-    min-height: 100vh;
+    min-height: 80vh;
 }
 
 .wrapper {
@@ -43,10 +42,10 @@
     flex-direction: column;
     width: 80%;
     background-color: whitesmoke;
-    min-height: 100vh;
+    min-height: 80vh;
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 100px;
     border-radius: 10px 10px 0 0;
     // padding-bottom: 100px;
 
@@ -164,7 +163,7 @@
     align-self: center;
     height: 50px;
     width: 50%;
-    margin: 50px;
+    margin: 100px 0 50px 0;
 
     border-radius: 12px;
     border: none;
