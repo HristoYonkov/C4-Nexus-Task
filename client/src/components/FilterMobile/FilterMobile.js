@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 import './FilterMobile.scss'
 
-const FilterMobile = ({ setCurrentState, originalState, minMaxPrice}) => {
+const FilterMobile = ({ setCurrentState, originalState, minMaxPrice }) => {
     const [toggle, setToggle] = useState(false);
     const [selected, setSelected] = useState([]);
     const [colors, setColors] = useState({
@@ -17,28 +17,14 @@ const FilterMobile = ({ setCurrentState, originalState, minMaxPrice}) => {
         price: minMaxPrice.min
     });
 
-    useEffect(() => {
-        setColors({...colors, white: false, black: false, blue: false} )
-    }, [originalState]);
-
     const maxPrice = minMaxPrice.max;
     const minPrice = minMaxPrice.min;
 
-    const handleChangeColors = (e) => {
-        if (e.target.checked) {
-            setColors({...colors, [e.target.value]: e.target.checked})
-            setSelected(state => [...state, e.target.value]);
-        } else {
-            setColors({...colors, [e.target.value]: e.target.checked})
-            setSelected((state) => state.filter(x => x !== e.target.value));
-        }
-    }
-
-    const handleChangePrice = (e) => {
-        const value = e.target.value
-        const name = e.target.name
-        setFilteredPrice(prev => ({ ...prev, [name]: value }));
-    }
+    useEffect(() => {
+        setColors({ ...colors, white: false, black: false, blue: false });
+        setFilteredPrice(state => ({ ...state, price: minPrice }));
+        setSelected([]);
+    }, [originalState]);
 
     useEffect(() => {
         setCurrentState(originalState);
@@ -49,6 +35,23 @@ const FilterMobile = ({ setCurrentState, originalState, minMaxPrice}) => {
             setCurrentState((state) => state.filter((x) => x.price >= filteredPrice.price));
         }
     }, [selected, filteredPrice, originalState, setCurrentState]);
+
+    const handleChangeColors = (e) => {
+        if (e.target.checked) {
+            setColors({ ...colors, [e.target.value]: e.target.checked })
+            setSelected(state => [...state, e.target.value]);
+        } else {
+            setColors({ ...colors, [e.target.value]: e.target.checked })
+            setSelected((state) => state.filter(x => x !== e.target.value));
+        }
+    }
+
+    const handleChangePrice = (e) => {
+        const value = e.target.value
+        const name = e.target.name
+        setFilteredPrice(prev => ({ ...prev, [name]: value }));
+    }
+
 
     return (
         <div className='app__filterMobile'>
