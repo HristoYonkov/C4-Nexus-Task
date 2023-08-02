@@ -16,10 +16,20 @@ const Filter = ({ setCurrentState, originalState, minMaxPrice }) => {
   const minPrice = minMaxPrice.min;
 
   useEffect(() => {
-    //filters remain clicked example with blue and white!!!
     setColors({ ...colors, white: false, black: false, blue: false });
     setFilteredPrice(state => ({ ...state, price: minPrice }));
+    setSelected([]);
   }, [originalState]);
+
+  useEffect(() => {
+    setCurrentState(originalState);
+    setCurrentState((state) => state.filter((x) => x.price >= filteredPrice.price));
+
+    if (selected.length > 0) {
+      setCurrentState(originalState.filter(({ color }) => selected.includes(color)));
+      setCurrentState((state) => state.filter((x) => x.price >= filteredPrice.price));
+    }
+  }, [selected, filteredPrice, originalState, setCurrentState]);
 
   const handleChangeColors = (e) => {
     if (e.target.checked) {
@@ -37,15 +47,6 @@ const Filter = ({ setCurrentState, originalState, minMaxPrice }) => {
     setFilteredPrice(prev => ({ ...prev, [name]: value }));
   }
 
-  useEffect(() => {
-    setCurrentState(originalState);
-    setCurrentState((state) => state.filter((x) => x.price >= filteredPrice.price));
-
-    if (selected.length > 0) {
-      setCurrentState(originalState.filter(({ color }) => selected.includes(color)));
-      setCurrentState((state) => state.filter((x) => x.price >= filteredPrice.price));
-    }
-  }, [selected, filteredPrice, originalState, setCurrentState]);
 
 
   return (
