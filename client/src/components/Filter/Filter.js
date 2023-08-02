@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import './Filter.scss';
 
-const Filter = ({ setCurrentState, setOriginalState, minMaxPrice }) => {
+const Filter = ({ setCurrentState, originalState, minMaxPrice }) => {
   const [selected, setSelected] = useState([]);
+  const [colors, setColors] = useState({
+    white: false,
+    black: false,
+    blue: false
+  });
+  
   const [filteredPrice, setFilteredPrice] = useState({
     price: minMaxPrice.min
   });
-  
+
   const maxPrice = minMaxPrice.max;
   const minPrice = minMaxPrice.min;
-  
+
   const handleChangeColors = (e) => {
     if (e.target.checked) {
       setSelected(state => [...state, e.target.value]);
@@ -23,35 +29,34 @@ const Filter = ({ setCurrentState, setOriginalState, minMaxPrice }) => {
     const name = e.target.name
     setFilteredPrice(prev => ({ ...prev, [name]: value }));
   }
-  
+
   useEffect(() => {
-    setCurrentState(setOriginalState);
+    setCurrentState(originalState);
     setCurrentState((state) => state.filter((x) => x.price >= filteredPrice.price));
 
     if (selected.length > 0) {
-      setCurrentState(setOriginalState.filter(({color}) => selected.includes(color)));
+      setCurrentState(originalState.filter(({ color }) => selected.includes(color)));
       setCurrentState((state) => state.filter((x) => x.price >= filteredPrice.price));
     }
-    
-  }, [selected, filteredPrice]);
-  
+  }, [selected, filteredPrice, originalState, setCurrentState]);
+
 
   return (
     <section className='app__filter'>
       <div className='app__filter-colors'>
         <h4>Colors</h4>
         <div>
-          <input id='white' value="white" type="checkbox" onChange={handleChangeColors} />
+          <input id='white' defaultChecked={colors.white} value="white" type="checkbox" onChange={handleChangeColors} />
           <label htmlFor='white'>White</label>
         </div>
 
         <div>
-          <input id='black' type="checkbox" value="black" onChange={handleChangeColors} />
+          <input id='black' defaultChecked={colors.black} type="checkbox" value="black" onChange={handleChangeColors} />
           <label htmlFor='black'>Black</label>
         </div>
 
         <div>
-          <input id='blue' type="checkbox" value="blue" onChange={handleChangeColors} />
+          <input id='blue' defaultChecked={colors.blue} type="checkbox" value="blue" onChange={handleChangeColors} />
           <label htmlFor='blue'>Blue</label>
         </div>
       </div>

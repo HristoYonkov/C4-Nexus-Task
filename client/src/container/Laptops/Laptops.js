@@ -6,39 +6,44 @@ import Card from '../../components/Card/Card'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
 
-const Laptops = ({ state, setCurrentState, originalState }) => {
-    const [backupProducts, setBackupProducts] = useState(state);
-    const [products, setProducts] = useState(backupProducts);
-    const [interval, setInterval] = useState(4);
+const Laptops = ({ state, setCurrentState, originalState, setBackupLaptops, setBuyedProducts }) => {
+    const [products, setProducts] = useState(state);
+    const [interval, setInterval] = useState(6);
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
 
     useEffect(() => {
-        setBackupProducts(state);
+        setProducts(state);
+        setInterval(6);
     }, [state]);
-    
+
     useEffect(() => {
-        setProducts(backupProducts.slice(0, interval));
-    }, [state, backupProducts]);
+        setProducts((curr) => [...curr, ...state.slice(curr.length, curr.length + interval)]);
+    }, [interval, state]);
 
     const loadMoreHandler = () => {
-        setInterval(state => state + 4);
-        setProducts((curr) => [...curr, ...backupProducts.slice(curr.length, curr.length + interval)]);
+        setInterval(state => state + 6);
     }
 
     const minMaxPrice = () => {
-        const min = originalState.map(x => x.price);
+        if (originalState.length > 0) {
+            const min = originalState?.map(x => x.price);
+            return {
+                min: min.reduce((acc, item) => acc < item ? acc : item),
+                max: min.reduce((acc, item) => acc > item ? acc : item)
+            }
+        }
         return {
-            min: min.reduce((acc, item) => acc < item ? acc : item),
-            max: min.reduce((acc, item) => acc > item ? acc : item)
+            min: 0,
+            max: 0
         }
     }
 
     return (
         <div className='wrapper'>
-            <Filter minMaxPrice={minMaxPrice()} setOriginalState={originalState} setCurrentState={setCurrentState} />
+            <Filter minMaxPrice={minMaxPrice()} originalState={originalState} setCurrentState={setCurrentState} />
 
             <div className='app__container'>
                 <section className='app__container-top'>
@@ -50,28 +55,28 @@ const Laptops = ({ state, setCurrentState, originalState }) => {
                         </div>
 
                         <div className='app__container__descr-count'>
-                            <p><span>{products?.length}</span> Products in store</p>
+                            <p><span>{products?.slice(0, interval).length}</span> Products in store</p>
                         </div>
                     </div>
 
                     <div className='app__container-sort'>
                         <div>
-                            <FilterMobile minMaxPrice={minMaxPrice()} setOriginalState={originalState} setCurrentState={setCurrentState} />
+                            <FilterMobile minMaxPrice={minMaxPrice()} originalState={originalState} setCurrentState={setCurrentState} />
                         </div>
 
                         <div>
-                            <Dropdown setProducts={setBackupProducts} reset={state} />
+                            <Dropdown setProducts={setProducts} reset={state} />
                         </div>
                     </div>
                 </section>
 
                 <section className='app__container-products'>
-                    {products.map((item) =>
-                        <Card key={item.id} item={item} />
+                    {products.slice(0, interval).map((item) =>
+                        <Card key={item.id} item={item} setBackupLaptops={setBackupLaptops} setBuyedProducts={setBuyedProducts} />
                     )}
                 </section>
-                {state.length !== products.length &&
-                    <button className='showMore' onClick={() => loadMoreHandler()} >Load More</button>
+                {interval <= products.length &&
+                    <button className='showMore' onClick={() => loadMoreHandler()} >Show More</button>
                 }
             </div>
         </div>

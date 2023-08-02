@@ -7,22 +7,27 @@ import FilterMobile from '../../components/FilterMobile/FilterMobile'
 
 const Monitors = ({ state, setCurrentState, originalState }) => {
     const [products, setProducts] = useState(state);
+    const [interval, setInterval] = useState(4);
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
 
     useEffect(() => {
-        setProducts(state.slice(0, 4))
+        setProducts(state);
+        setInterval(4);
     }, [state]);
 
+    useEffect(() => {
+        setProducts((curr) => [...curr, ...state.slice(curr.length, curr.length + interval)]);
+    }, [interval, state]);
+
     const loadMoreHandler = () => {
-        setProducts((curr) => [...curr, ...state.slice(curr.length, curr.length + 4)]);
+        setInterval(state => state + 4);
     }
 
     const minMaxPrice = () => {
         const min = originalState.map(x => x.price);
-
         return {
             min: min.reduce((acc, item) => acc < item ? acc : item),
             max: min.reduce((acc, item) => acc > item ? acc : item)
@@ -31,7 +36,7 @@ const Monitors = ({ state, setCurrentState, originalState }) => {
 
     return (
         <div className='wrapper'>
-            <Filter minMaxPrice={minMaxPrice()} setOriginalState={originalState} setCurrentState={setCurrentState} />
+            <Filter minMaxPrice={minMaxPrice()} originalState={originalState} setCurrentState={setCurrentState} />
 
             <div className='app__container'>
                 <section className='app__container-top'>
@@ -43,13 +48,13 @@ const Monitors = ({ state, setCurrentState, originalState }) => {
                         </div>
 
                         <div className='app__container__descr-count'>
-                            <p><span>{products?.length}</span> Products in store</p>
+                            <p><span>{products?.slice(0, interval).length}</span> Products in store</p>
                         </div>
                     </div>
 
                     <div className='app__container-sort'>
                         <div>
-                            <FilterMobile minMaxPrice={minMaxPrice()} setOriginalState={originalState} setCurrentState={setCurrentState} />
+                            <FilterMobile minMaxPrice={minMaxPrice()} originalState={originalState} setCurrentState={setCurrentState} />
                         </div>
 
                         <div>
@@ -59,11 +64,11 @@ const Monitors = ({ state, setCurrentState, originalState }) => {
                 </section>
 
                 <section className='app__container-products'>
-                    {products.map((item) =>
+                    {products.slice(0, interval).map((item) =>
                         <Card key={item.id} item={item} />
                     )}
                 </section>
-                {state.length !== products.length &&
+                {interval <= products.length &&
                     <button className='showMore' onClick={() => loadMoreHandler()} >Load More</button>
                 }
             </div>

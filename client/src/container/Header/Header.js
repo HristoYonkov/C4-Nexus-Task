@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
 import { HiMenu, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
+import { FaShoppingCart } from 'react-icons/fa';
 
 import './Header.scss';
 
 import logo from '../../assets/logo.png';
 
-const Header = () => {
+const Header = ({ buyedProducts }) => {
     const [toggle, setToggle] = useState(false);
 
     return (
@@ -15,6 +16,7 @@ const Header = () => {
             <div className='app__nav-logo'>
                 <img src={logo} alt="logo" />
             </div>
+
             <ul className='app__nav-links'>
                 <li key={`link-/`} className='app__flex p-text'>
                     <NavLink to={`/`}>laptops</NavLink>
@@ -27,7 +29,10 @@ const Header = () => {
                     </li>
                 ))}
             </ul>
-
+            <div className='shopping-cart'>
+                <span>{buyedProducts}</span>
+                <FaShoppingCart />
+            </div>
             <div className="app__nav-menu">
                 <HiMenu onClick={() => setToggle(true)} />
 

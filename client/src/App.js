@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Route, Routes } from "react-router-dom";
 import './App.scss';
 
@@ -15,6 +15,8 @@ import phonesData from './data/phonesData';
 import tabletsData from './data/tabletsData';
 
 function App() {
+  const [buyedProducts, setBuyedProducts] = useState(0);
+
   const [backupLaptops, setBackupLaptops] = useState(laptopsData);
   const [laptopsState, setLaptopsState] = useState(backupLaptops);
 
@@ -29,7 +31,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
+      <Header buyedProducts={buyedProducts} />
       <main className='app__main'>
         <Routes>
           <Route path='/' element={
@@ -37,6 +39,8 @@ function App() {
               state={laptopsState}
               setCurrentState={setLaptopsState}
               originalState={backupLaptops}
+              setBackupLaptops={setBackupLaptops}
+              setBuyedProducts={setBuyedProducts}
             />}
           />
 

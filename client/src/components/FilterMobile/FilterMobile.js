@@ -5,21 +5,31 @@ import { motion } from 'framer-motion';
 
 import './FilterMobile.scss'
 
-const FilterMobile = ({ setCurrentState, setOriginalState, minMaxPrice }) => {
+const FilterMobile = ({ setCurrentState, originalState, minMaxPrice}) => {
     const [toggle, setToggle] = useState(false);
     const [selected, setSelected] = useState([]);
+    const [colors, setColors] = useState({
+        white: false,
+        black: false,
+        blue: false
+    });
     const [filteredPrice, setFilteredPrice] = useState({
         price: minMaxPrice.min
     });
+
+    useEffect(() => {
+        setColors({...colors, white: false, black: false, blue: false} )
+    }, [originalState]);
 
     const maxPrice = minMaxPrice.max;
     const minPrice = minMaxPrice.min;
 
     const handleChangeColors = (e) => {
-        console.log('changed');
         if (e.target.checked) {
+            setColors({...colors, [e.target.value]: e.target.checked})
             setSelected(state => [...state, e.target.value]);
         } else {
+            setColors({...colors, [e.target.value]: e.target.checked})
             setSelected((state) => state.filter(x => x !== e.target.value));
         }
     }
@@ -31,15 +41,14 @@ const FilterMobile = ({ setCurrentState, setOriginalState, minMaxPrice }) => {
     }
 
     useEffect(() => {
-        setCurrentState(setOriginalState);
+        setCurrentState(originalState);
         setCurrentState((state) => state.filter((x) => x.price >= filteredPrice.price));
 
         if (selected.length > 0) {
-            setCurrentState(setOriginalState.filter(({ color }) => selected.includes(color)));
+            setCurrentState(originalState.filter(({ color }) => selected.includes(color)));
             setCurrentState((state) => state.filter((x) => x.price >= filteredPrice.price));
         }
-
-    }, [selected, filteredPrice, setCurrentState, setOriginalState]);
+    }, [selected, filteredPrice, originalState, setCurrentState]);
 
     return (
         <div className='app__filterMobile'>
@@ -58,17 +67,17 @@ const FilterMobile = ({ setCurrentState, setOriginalState, minMaxPrice }) => {
                             <div className='app__filterMobile-colors'>
                                 <h4>Colors</h4>
                                 <div>
-                                    <input id='whiteMobile' value="white" type="checkbox" onChange={handleChangeColors} />
+                                    <input id='whiteMobile' defaultChecked={colors.white} value="white" type="checkbox" onChange={handleChangeColors} />
                                     <label htmlFor='whiteMobile'>White</label>
                                 </div>
 
                                 <div>
-                                    <input id='blackMobile' value="black" type="checkbox" onChange={handleChangeColors} />
+                                    <input id='blackMobile' defaultChecked={colors.black} value="black" type="checkbox" onChange={handleChangeColors} />
                                     <label htmlFor='blackMobile'>Black</label>
                                 </div>
 
                                 <div>
-                                    <input id='blueMobile' value="blue" type="checkbox" onChange={handleChangeColors} />
+                                    <input id='blueMobile' defaultChecked={colors.blue} value="blue" type="checkbox" onChange={handleChangeColors} />
                                     <label htmlFor='blueMobile'>Blue</label>
                                 </div>
                             </div>
