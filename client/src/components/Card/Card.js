@@ -22,6 +22,7 @@ const Card = ({ item, setBackupLaptops, setBuyedProducts }) => {
     }
 
     const setBackupLaptopsHandler = () => {
+        alert('Product added to cart')
         setBackupLaptops(state => state.filter(x => x.id !== item.id));
         setBuyedProducts(state => state + 1)
     }

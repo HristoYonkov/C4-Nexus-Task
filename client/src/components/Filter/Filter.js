@@ -8,7 +8,6 @@ const Filter = ({ setCurrentState, originalState, minMaxPrice }) => {
     black: false,
     blue: false
   });
-  
   const [filteredPrice, setFilteredPrice] = useState({
     price: minMaxPrice.min
   });
@@ -16,10 +15,18 @@ const Filter = ({ setCurrentState, originalState, minMaxPrice }) => {
   const maxPrice = minMaxPrice.max;
   const minPrice = minMaxPrice.min;
 
+  useEffect(() => {
+    //filters remain clicked example with blue and white!!!
+    setColors({ ...colors, white: false, black: false, blue: false });
+    setFilteredPrice(state => ({ ...state, price: minPrice }));
+  }, [originalState]);
+
   const handleChangeColors = (e) => {
     if (e.target.checked) {
+      setColors({ ...colors, [e.target.value]: e.target.checked });
       setSelected(state => [...state, e.target.value]);
     } else {
+      setColors({ ...colors, [e.target.value]: e.target.checked });
       setSelected((state) => state.filter(x => x !== e.target.value));
     }
   }
@@ -46,17 +53,17 @@ const Filter = ({ setCurrentState, originalState, minMaxPrice }) => {
       <div className='app__filter-colors'>
         <h4>Colors</h4>
         <div>
-          <input id='white' defaultChecked={colors.white} value="white" type="checkbox" onChange={handleChangeColors} />
+          <input id='white' checked={colors.white} value="white" type="checkbox" onChange={handleChangeColors} />
           <label htmlFor='white'>White</label>
         </div>
 
         <div>
-          <input id='black' defaultChecked={colors.black} type="checkbox" value="black" onChange={handleChangeColors} />
+          <input id='black' checked={colors.black} type="checkbox" value="black" onChange={handleChangeColors} />
           <label htmlFor='black'>Black</label>
         </div>
 
         <div>
-          <input id='blue' defaultChecked={colors.blue} type="checkbox" value="blue" onChange={handleChangeColors} />
+          <input id='blue' checked={colors.blue} type="checkbox" value="blue" onChange={handleChangeColors} />
           <label htmlFor='blue'>Blue</label>
         </div>
       </div>
