@@ -6,9 +6,9 @@ import Card from '../../components/Card/Card'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
 
-const Laptops = ({ state, setCurrentState, originalState, setBackupLaptops, setBuyedProducts }) => {
+const Laptops = ({ state, setCurrentState, originalState, setBackupProducts, setBuyedProducts }) => {
     const [products, setProducts] = useState(state);
-    const [interval, setInterval] = useState(6);
+    const [interval, setInterval] = useState(4);
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -16,7 +16,7 @@ const Laptops = ({ state, setCurrentState, originalState, setBackupLaptops, setB
 
     useEffect(() => {
         setProducts(state);
-        setInterval(6);
+        setInterval(4);
     }, [state]);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ const Laptops = ({ state, setCurrentState, originalState, setBackupLaptops, setB
     }, [interval, state]);
 
     const loadMoreHandler = () => {
-        setInterval(state => state + 6);
+        setInterval(state => state + 4);
     }
 
     const minMaxPrice = () => {
@@ -72,11 +72,11 @@ const Laptops = ({ state, setCurrentState, originalState, setBackupLaptops, setB
 
                 <section className='app__container-products'>
                     {products.slice(0, interval).map((item) =>
-                        <Card key={item.id} item={item} setBackupLaptops={setBackupLaptops} setBuyedProducts={setBuyedProducts} />
+                        <Card key={item.id} item={item} setBackupProducts={setBackupProducts} setBuyedProducts={setBuyedProducts} />
                     )}
                 </section>
-                {interval <= products.length &&
-                    <button className='showMore' onClick={() => loadMoreHandler()} >Show More</button>
+                {interval < products.length &&
+                    <button className='showMore' onClick={() => loadMoreHandler()} >Load More</button>
                 }
             </div>
         </div>
