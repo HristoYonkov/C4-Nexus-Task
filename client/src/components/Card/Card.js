@@ -3,7 +3,7 @@ import { FaRegStar, FaStar } from 'react-icons/fa'
 import { nanoid } from 'nanoid';
 import './Card.scss'
 
-const Card = ({ item, setBackupLaptops, setBuyedProducts }) => {
+const Card = ({ item, setBackupProducts, setBuyedProducts }) => {
     const calculateDiscount = (disc) => {
         const discount = item.price - (item.price / 100 * Number(disc));
         return discount;
@@ -21,9 +21,9 @@ const Card = ({ item, setBackupLaptops, setBuyedProducts }) => {
         return ratingArray;
     }
 
-    const setBackupLaptopsHandler = () => {
+    const setBackupProductsHandler = () => {
         alert('Product added to cart')
-        setBackupLaptops(state => state.filter(x => x.id !== item.id));
+        setBackupProducts(state => state.filter(x => x.id !== item.id));
         setBuyedProducts(state => state + 1)
     }
 
@@ -54,7 +54,7 @@ const Card = ({ item, setBackupLaptops, setBuyedProducts }) => {
                     <div className='card__details-stars'>
                         {calculateStars(item.rating).map(rating => rating)}
                     </div>
-                    <button onClick={setBackupLaptopsHandler}>Add to Cart</button>
+                    <button onClick={setBackupProductsHandler}>Add to Cart</button>
                 </div>
 
             </div>
