@@ -7,18 +7,25 @@ import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
 
 const Laptops = ({ state, setCurrentState, originalState }) => {
-    const [products, setProducts] = useState(state);
+    const [backupProducts, setBackupProducts] = useState(state);
+    const [products, setProducts] = useState(backupProducts);
+    const [interval, setInterval] = useState(4);
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
 
     useEffect(() => {
-        setProducts(state.slice(0, 4))
+        setBackupProducts(state);
     }, [state]);
+    
+    useEffect(() => {
+        setProducts(backupProducts.slice(0, interval));
+    }, [state, backupProducts]);
 
     const loadMoreHandler = () => {
-        setProducts((curr) => [...curr, ...state.slice(curr.length, curr.length + 4)]);
+        setInterval(state => state + 4);
+        setProducts((curr) => [...curr, ...backupProducts.slice(curr.length, curr.length + interval)]);
     }
 
     const minMaxPrice = () => {
@@ -54,7 +61,7 @@ const Laptops = ({ state, setCurrentState, originalState }) => {
                         </div>
 
                         <div>
-                            <Dropdown setProducts={setProducts} reset={state} />
+                            <Dropdown setProducts={setBackupProducts} reset={state} />
                         </div>
                     </div>
                 </section>

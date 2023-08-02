@@ -19,7 +19,7 @@ const Dropdown = ({ reset, setProducts }) => {
         } else if (sortValue === 'alphaZ-A') {
             setProducts(state => [...state.sort((a, b) => b.name.localeCompare(a.name))]);
         }
-    }, [sortValue]);
+    }, [sortValue, setProducts]);
 
     const onChangeHandler = (e) => {
         setSortValue(e.target.value);

@@ -16,6 +16,7 @@ const FilterMobile = ({ setCurrentState, setOriginalState, minMaxPrice }) => {
     const minPrice = minMaxPrice.min;
 
     const handleChangeColors = (e) => {
+        console.log('changed');
         if (e.target.checked) {
             setSelected(state => [...state, e.target.value]);
         } else {
@@ -38,7 +39,7 @@ const FilterMobile = ({ setCurrentState, setOriginalState, minMaxPrice }) => {
             setCurrentState((state) => state.filter((x) => x.price >= filteredPrice.price));
         }
 
-    }, [selected, filteredPrice]);
+    }, [selected, filteredPrice, setCurrentState, setOriginalState]);
 
     return (
         <div className='app__filterMobile'>
@@ -74,8 +75,8 @@ const FilterMobile = ({ setCurrentState, setOriginalState, minMaxPrice }) => {
 
                             <div className='app__filterMobile-price'>
                                 <h4>Price</h4>
-                                <input name='price' value={filteredPrice.price} id='price' onInput={handleChangePrice} type="range" min={minMaxPrice.min} max={minMaxPrice.max} />
-                                <label id="price"><p>${filteredPrice.price} - ${minMaxPrice.max}</p></label>
+                                <input name='price' value={filteredPrice.price} id='price' onInput={handleChangePrice} type="range" min={minPrice} max={maxPrice} />
+                                <label id="price"><p>${filteredPrice.price} - ${maxPrice}</p></label>
                             </div>
                             {/* <button onClick={() => handleSeaarch()}>Search</button> */}
                         </div>
