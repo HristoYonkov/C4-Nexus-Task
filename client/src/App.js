@@ -39,7 +39,7 @@ function App() {
               state={laptopsState}
               setCurrentState={setLaptopsState}
               originalState={backupLaptops}
-              setBackupLaptops={setBackupLaptops}
+              setBackupProducts={setBackupLaptops}
               setBuyedProducts={setBuyedProducts}
             />}
           />
@@ -49,6 +49,8 @@ function App() {
               state={monitorsState}
               setCurrentState={setMonitorsState}
               originalState={backupMonitors}
+              setBackupProducts={setBackupMonitors}
+              setBuyedProducts={setBuyedProducts}
             />}
           />
 
@@ -57,6 +59,8 @@ function App() {
               state={phonesState}
               setCurrentState={setPhonesState}
               originalState={backupPhones}
+              setBackupProducts={setBackupPhones}
+              setBuyedProducts={setBuyedProducts}
             />}
           />
 
@@ -65,6 +69,8 @@ function App() {
               state={tabletsState}
               setCurrentState={setTabletsState}
               originalState={backupTablets}
+              setBackupProducts={setBackupTablets}
+              setBuyedProducts={setBuyedProducts}
             />}
           />
         </Routes>
