@@ -3,65 +3,300 @@ const { nanoid } = require('nanoid');
 const phones_data = [
     {
         id: nanoid(),
-        name: 'Asus Vivobook',
-        category: 'Laptop',
-        imageUrl: 'https://www.asus.com/media/Odin/Websites/global/Series/12.png',
-        rating: 3,
-        price: 1200,
-        discount: 30,
-        color: 'white'
-    },
-    {
-        id: nanoid(),
-        name: 'Asus ROG',
-        category: 'Laptop',
-        imageUrl: 'https://laptop.bg/system/images/338446/normal/asus_rog_strix_g17_g713rsll008w.jpg',
+        name: 'Xiaomi POCO X5 PRO',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/54255/54254311/images/res_e7608bec5e4a57ae2c3f2f9b2683abd8.jpg?width=450&height=450&hash=DB30ED244AABD8B7E4AFB818B3CE542C',
         rating: 5,
-        price: 3000,
+        price: 679,
         discount: 0,
-        color: 'black'
-    },
-    {
-        id: nanoid(),
-        name: 'Asus Zenbook',
-        category: 'Laptop',
-        imageUrl: 'https://laptop.bg/system/images/326748/normal/asus_zenbook_flip_15_oled_ux564eioledh731x.jpg',
-        rating: 2,
-        price: 1500,
-        discount: 40,
         color: 'blue'
     },
     {
         id: nanoid(),
-        name: 'Asus Zenbook Pro',
-        category: 'Laptop',
-        imageUrl: 'https://assets.products-live.ao.com/Images/854b0b23-1752-4975-9e4f-7b4938a254dc/1280x873/UX8402ZE-M3022W_Asus_Laptop_01.jpg',
+        name: 'Apple iPhone 14 Pro',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/48592/48591222/images/res_12362c60d3c74a4ac96f0ae792cf673b.jpg?width=450&height=450&hash=21353ECBB32BF3E470CC23A1211B80D9 ',
         rating: 5,
-        price: 2500,
-        discount: 10,
-        color: 'black'
-    },
-    {
-        id: nanoid(),
-        name: 'Lenovo Thinkpad',
-        category: 'Laptop',
-        imageUrl: 'https://laptop.bg/system/images/362296/normal/lenovo_thinkpad_p14s_gen_3_21AK0001BM.png',
-        rating: 5,
-        price: 3000,
-        discount: 0,
-        color: 'black'
-    },
-    {
-        id: nanoid(),
-        name: 'HP Elite Dragonfly',
-        category: 'Laptop',
-        imageUrl: 'https://ardes.bg/uploads/original/hp-elite-dragonfly-g3-412404.jpg?_gl=1*16nr4zc*_up*MQ..&gclid=CjwKCAjwt52mBhB5EiwA05YKozHfhji-KT7E3swK40AAxVOiatCLMLienuuhE43tqfes221WFaGMJhoCsQkQAvD_BwE',
-        rating: 5,
-        price: 5000,
+        price: 2200,
         discount: 5,
         color: 'black'
     },
-    
+    {
+        id: nanoid(),
+        name: 'Samsung Galaxy A53',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/44270/44269093/images/res_e37d3552af09e77a25ed9b565ce6a927.jpg?width=450&height=450&hash=F1475C4277352FDCFF7BAA215492EB31',
+        rating: 4,
+        price: 650,
+        discount: 5,
+        color: 'black'
+    },
+    {
+        id: nanoid(),
+        name: 'Xiaomi Redmi 10A',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/47867/47866080/images/res_2b8bd087be37c62aa568a1d406eac894.jpg?width=450&height=450&hash=03C0268CF6643799A8F468B430D6624F',
+        rating: 2,
+        price: 150,
+        discount: 0,
+        color: 'blue'
+    },
+    {
+        id: nanoid(),
+        name: 'Apple iPhone 13 mini',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/40685/40684444/images/res_6e8049604574487c4d6eb83306b61a5d.jpg?width=450&height=450&hash=364D19E554C0AABC9964925844BA3057',
+        rating: 5,
+        price: 1490,
+        discount: 0,
+        color: 'white'
+    },
+    {
+        id: nanoid(),
+        name: 'Samsung Galaxy Note 8',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/19887/19886950/images/res_243e3dafd3b54b6fc332316fc755b44e.jpg?width=450&height=450&hash=5E0DADEF7B6DA67D0FFA3BB970882AC3',
+        rating: 0,
+        price: 630,
+        discount: 0,
+        color: 'black'
+    }, {
+        id: nanoid(),
+        name: 'Xiaomi POCO X5 PRO',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/54255/54254311/images/res_e7608bec5e4a57ae2c3f2f9b2683abd8.jpg?width=450&height=450&hash=DB30ED244AABD8B7E4AFB818B3CE542C',
+        rating: 5,
+        price: 679,
+        discount: 0,
+        color: 'blue'
+    },
+    {
+        id: nanoid(),
+        name: 'Apple iPhone 14 Pro',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/48592/48591222/images/res_12362c60d3c74a4ac96f0ae792cf673b.jpg?width=450&height=450&hash=21353ECBB32BF3E470CC23A1211B80D9 ',
+        rating: 5,
+        price: 2200,
+        discount: 5,
+        color: 'black'
+    },
+    {
+        id: nanoid(),
+        name: 'Samsung Galaxy A53',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/44270/44269093/images/res_e37d3552af09e77a25ed9b565ce6a927.jpg?width=450&height=450&hash=F1475C4277352FDCFF7BAA215492EB31',
+        rating: 4,
+        price: 650,
+        discount: 5,
+        color: 'black'
+    },
+    {
+        id: nanoid(),
+        name: 'Xiaomi Redmi 10A',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/47867/47866080/images/res_2b8bd087be37c62aa568a1d406eac894.jpg?width=450&height=450&hash=03C0268CF6643799A8F468B430D6624F',
+        rating: 2,
+        price: 150,
+        discount: 0,
+        color: 'blue'
+    },
+    {
+        id: nanoid(),
+        name: 'Apple iPhone 13 mini',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/40685/40684444/images/res_6e8049604574487c4d6eb83306b61a5d.jpg?width=450&height=450&hash=364D19E554C0AABC9964925844BA3057',
+        rating: 5,
+        price: 1490,
+        discount: 0,
+        color: 'white'
+    },
+    {
+        id: nanoid(),
+        name: 'Samsung Galaxy Note 8',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/19887/19886950/images/res_243e3dafd3b54b6fc332316fc755b44e.jpg?width=450&height=450&hash=5E0DADEF7B6DA67D0FFA3BB970882AC3',
+        rating: 0,
+        price: 630,
+        discount: 0,
+        color: 'black'
+    }, {
+        id: nanoid(),
+        name: 'Xiaomi POCO X5 PRO',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/54255/54254311/images/res_e7608bec5e4a57ae2c3f2f9b2683abd8.jpg?width=450&height=450&hash=DB30ED244AABD8B7E4AFB818B3CE542C',
+        rating: 5,
+        price: 679,
+        discount: 0,
+        color: 'blue'
+    },
+    {
+        id: nanoid(),
+        name: 'Apple iPhone 14 Pro',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/48592/48591222/images/res_12362c60d3c74a4ac96f0ae792cf673b.jpg?width=450&height=450&hash=21353ECBB32BF3E470CC23A1211B80D9 ',
+        rating: 5,
+        price: 2200,
+        discount: 5,
+        color: 'black'
+    },
+    {
+        id: nanoid(),
+        name: 'Samsung Galaxy A53',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/44270/44269093/images/res_e37d3552af09e77a25ed9b565ce6a927.jpg?width=450&height=450&hash=F1475C4277352FDCFF7BAA215492EB31',
+        rating: 4,
+        price: 650,
+        discount: 5,
+        color: 'black'
+    },
+    {
+        id: nanoid(),
+        name: 'Xiaomi Redmi 10A',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/47867/47866080/images/res_2b8bd087be37c62aa568a1d406eac894.jpg?width=450&height=450&hash=03C0268CF6643799A8F468B430D6624F',
+        rating: 2,
+        price: 150,
+        discount: 0,
+        color: 'blue'
+    },
+    {
+        id: nanoid(),
+        name: 'Apple iPhone 13 mini',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/40685/40684444/images/res_6e8049604574487c4d6eb83306b61a5d.jpg?width=450&height=450&hash=364D19E554C0AABC9964925844BA3057',
+        rating: 5,
+        price: 1490,
+        discount: 0,
+        color: 'white'
+    },
+    {
+        id: nanoid(),
+        name: 'Samsung Galaxy Note 8',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/19887/19886950/images/res_243e3dafd3b54b6fc332316fc755b44e.jpg?width=450&height=450&hash=5E0DADEF7B6DA67D0FFA3BB970882AC3',
+        rating: 0,
+        price: 630,
+        discount: 0,
+        color: 'black'
+    }, {
+        id: nanoid(),
+        name: 'Xiaomi POCO X5 PRO',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/54255/54254311/images/res_e7608bec5e4a57ae2c3f2f9b2683abd8.jpg?width=450&height=450&hash=DB30ED244AABD8B7E4AFB818B3CE542C',
+        rating: 5,
+        price: 679,
+        discount: 0,
+        color: 'blue'
+    },
+    {
+        id: nanoid(),
+        name: 'Apple iPhone 14 Pro',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/48592/48591222/images/res_12362c60d3c74a4ac96f0ae792cf673b.jpg?width=450&height=450&hash=21353ECBB32BF3E470CC23A1211B80D9 ',
+        rating: 5,
+        price: 2200,
+        discount: 5,
+        color: 'black'
+    },
+    {
+        id: nanoid(),
+        name: 'Samsung Galaxy A53',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/44270/44269093/images/res_e37d3552af09e77a25ed9b565ce6a927.jpg?width=450&height=450&hash=F1475C4277352FDCFF7BAA215492EB31',
+        rating: 4,
+        price: 650,
+        discount: 5,
+        color: 'black'
+    },
+    {
+        id: nanoid(),
+        name: 'Xiaomi Redmi 10A',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/47867/47866080/images/res_2b8bd087be37c62aa568a1d406eac894.jpg?width=450&height=450&hash=03C0268CF6643799A8F468B430D6624F',
+        rating: 2,
+        price: 150,
+        discount: 0,
+        color: 'blue'
+    },
+    {
+        id: nanoid(),
+        name: 'Apple iPhone 13 mini',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/40685/40684444/images/res_6e8049604574487c4d6eb83306b61a5d.jpg?width=450&height=450&hash=364D19E554C0AABC9964925844BA3057',
+        rating: 5,
+        price: 1490,
+        discount: 0,
+        color: 'white'
+    },
+    {
+        id: nanoid(),
+        name: 'Samsung Galaxy Note 8',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/19887/19886950/images/res_243e3dafd3b54b6fc332316fc755b44e.jpg?width=450&height=450&hash=5E0DADEF7B6DA67D0FFA3BB970882AC3',
+        rating: 0,
+        price: 630,
+        discount: 0,
+        color: 'black'
+    }, {
+        id: nanoid(),
+        name: 'Xiaomi POCO X5 PRO',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/54255/54254311/images/res_e7608bec5e4a57ae2c3f2f9b2683abd8.jpg?width=450&height=450&hash=DB30ED244AABD8B7E4AFB818B3CE542C',
+        rating: 5,
+        price: 679,
+        discount: 0,
+        color: 'blue'
+    },
+    {
+        id: nanoid(),
+        name: 'Apple iPhone 14 Pro',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/48592/48591222/images/res_12362c60d3c74a4ac96f0ae792cf673b.jpg?width=450&height=450&hash=21353ECBB32BF3E470CC23A1211B80D9 ',
+        rating: 5,
+        price: 2200,
+        discount: 5,
+        color: 'black'
+    },
+    {
+        id: nanoid(),
+        name: 'Samsung Galaxy A53',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/44270/44269093/images/res_e37d3552af09e77a25ed9b565ce6a927.jpg?width=450&height=450&hash=F1475C4277352FDCFF7BAA215492EB31',
+        rating: 4,
+        price: 650,
+        discount: 5,
+        color: 'black'
+    },
+    {
+        id: nanoid(),
+        name: 'Xiaomi Redmi 10A',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/47867/47866080/images/res_2b8bd087be37c62aa568a1d406eac894.jpg?width=450&height=450&hash=03C0268CF6643799A8F468B430D6624F',
+        rating: 2,
+        price: 150,
+        discount: 0,
+        color: 'blue'
+    },
+    {
+        id: nanoid(),
+        name: 'Apple iPhone 13 mini',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/40685/40684444/images/res_6e8049604574487c4d6eb83306b61a5d.jpg?width=450&height=450&hash=364D19E554C0AABC9964925844BA3057',
+        rating: 5,
+        price: 1490,
+        discount: 0,
+        color: 'white'
+    },
+    {
+        id: nanoid(),
+        name: 'Samsung Galaxy Note 8',
+        category: 'SmartPhone',
+        imageUrl: 'https://s13emagst.akamaized.net/products/19887/19886950/images/res_243e3dafd3b54b6fc332316fc755b44e.jpg?width=450&height=450&hash=5E0DADEF7B6DA67D0FFA3BB970882AC3',
+        rating: 0,
+        price: 630,
+        discount: 0,
+        color: 'black'
+    },
 ]
 
 export default phones_data;
