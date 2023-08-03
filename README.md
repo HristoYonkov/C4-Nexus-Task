@@ -11,6 +11,7 @@ I solve this problem with 'React' librares. As a part of the task i use hardcode
 this data is inside 'src/data' folder. And by this approach the app is not persistant,
 all states will be lost after refresh of the page!
 However, the state is well managed and if you cycle trough pages it wont be deleted!
+I made intentionally reseting the state of the filters and sorting functionality.
 I use props drilling approach with this task cause i started it so, i thought that the things will be more easy
 but when i get to 'filtering part + sorting' things get started more challenging :).
 As we speak of challenges, the real one for me was the desing! Since i am not designer it was hard for me to
