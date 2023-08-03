@@ -30,12 +30,12 @@ Task Summary:
 -Client "react" - version - 18.2.0
 
 Libraries:
-    "framer-motion" - version - 10.13.2
-    "nanoid" - version - 4.0.2
-    "node-sass" - version - 7.0.3
-    "react" - version - 18.2.0
-    "react-icons" - version - 4.10.1
-    "react-router-dom" - version - 6.14.2
+"framer-motion" - version - 10.13.2
+"nanoid" - version - 4.0.2
+"node-sass" - version - 7.0.3
+"react" - version - 18.2.0
+"react-icons" - version - 4.10.1
+"react-router-dom" - version - 6.14.2
 
 # Setup
 
