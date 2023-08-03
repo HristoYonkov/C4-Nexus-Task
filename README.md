@@ -31,12 +31,14 @@ Task Summary:
 -Client "react" - version - 18.2.0
 
 Libraries:
-"framer-motion" - version - 10.13.2
-"nanoid" - version - 4.0.2
-"node-sass" - version - 7.0.3
-"react" - version - 18.2.0
-"react-icons" - version - 4.10.1
-"react-router-dom" - version - 6.14.2
+<ol>
+  <li>"react" - version - 18.2.0</li>
+  <li>"framer-motion" - version - 10.13.2</li>
+  <li>"nanoid" - version - 4.0.2</li>
+  <li>"node-sass" - version - 7.0.3</li>
+  <li>"react-icons" - version - 4.10.1</li>
+  <li>"react-router-dom" - version - 6.14.2</li>
+</ol>
 
 # Setup
 
