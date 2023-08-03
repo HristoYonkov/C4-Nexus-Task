@@ -4,6 +4,8 @@ import Filter from '../../components/Filter/Filter'
 import Card from '../../components/Card/Card'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
+import { calcMinMaxPrice } from '../../hooks/calcMinMaxPrice'
+
 
 const Monitors = ({ state, setCurrentState, originalState, setBackupProducts, setBuyedProducts }) => {
     const [products, setProducts] = useState(state);
@@ -26,23 +28,10 @@ const Monitors = ({ state, setCurrentState, originalState, setBackupProducts, se
         setInterval(state => state + 4);
     }
 
-    const minMaxPrice = () => {
-        if (originalState.length > 0) {
-            const min = originalState?.map(x => x.price);
-            return {
-                min: min.reduce((acc, item) => acc < item ? acc : item),
-                max: min.reduce((acc, item) => acc > item ? acc : item)
-            }
-        }
-        return {
-            min: 0,
-            max: 0
-        }
-    }
 
     return (
         <div className='wrapper'>
-            <Filter minMaxPrice={minMaxPrice()} originalState={originalState} setCurrentState={setCurrentState} />
+            <Filter minMaxPrice={calcMinMaxPrice(originalState)} originalState={originalState} setCurrentState={setCurrentState} />
 
             <div className='app__container'>
                 <section className='app__container-top'>
@@ -60,7 +49,7 @@ const Monitors = ({ state, setCurrentState, originalState, setBackupProducts, se
 
                     <div className='app__container-sort'>
                         <div>
-                            <FilterMobile minMaxPrice={minMaxPrice()} originalState={originalState} setCurrentState={setCurrentState} />
+                            <FilterMobile minMaxPrice={calcMinMaxPrice(originalState)} originalState={originalState} setCurrentState={setCurrentState} />
                         </div>
 
                         <div>

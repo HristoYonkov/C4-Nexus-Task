@@ -7,6 +7,7 @@ import Dropdown from '../../components/Dropdown/Dropdown'
 import FilterMobile from '../../components/FilterMobile/FilterMobile'
 import { calcMinMaxPrice } from '../../hooks/calcMinMaxPrice'
 
+
 const Laptops = ({ state, setCurrentState, originalState, setBackupProducts, setBuyedProducts }) => {
     const [products, setProducts] = useState(state);
     const [interval, setInterval] = useState(4);
@@ -28,19 +29,6 @@ const Laptops = ({ state, setCurrentState, originalState, setBackupProducts, set
         setInterval(state => state + 4);
     }
 
-    // const minMaxPrice = (originalState) => {
-    //     if (originalState.length > 0) {
-    //         const min = originalState?.map(x => x.price);
-    //         return {
-    //             min: min.reduce((acc, item) => acc < item ? acc : item),
-    //             max: min.reduce((acc, item) => acc > item ? acc : item)
-    //         }
-    //     }
-    //     return {
-    //         min: 0,
-    //         max: 0
-    //     }
-    // }
 
     return (
         <div className='wrapper'>
