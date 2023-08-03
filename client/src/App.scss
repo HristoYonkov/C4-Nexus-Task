@@ -167,15 +167,15 @@
 
     border-radius: 12px;
     border: none;
-    background-color: #0077ff;
-    color: #e0efff;
+    background-color: #e0efff;
+    color: #0077ff;
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 20px;
 
     &:hover {
-        background-color: #e0efff;
-        color: #0077ff;
+        background-color: #0077ff;
+        color: #e0efff;
     }
 }
