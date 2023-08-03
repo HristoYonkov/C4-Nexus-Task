@@ -1,6 +1,6 @@
-# C4-Nexus-Task
+# Product Listing Page
 
-The app is a task for a "C4 Nexus" Company.
+The app is a task for Company.
 
 ![](/product-listing-page.png)
 
