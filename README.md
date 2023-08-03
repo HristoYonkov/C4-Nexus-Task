@@ -17,8 +17,7 @@ but when i get to 'filtering part + sorting' things get started more challenging
 As we speak of challenges, the real one for me was the desing! Since i am not designer it was hard for me to
 made things look fine! :)
 
-Task Summary:
-
+### Task Summary:
 1. As a part of the task, i use "react-router-dom" to cycle trough pages.
 2. "react-icons" for icons wich are in 'Navbar': 'burger menu' :), icons on the footer mobile filter icon
     and the cart.
