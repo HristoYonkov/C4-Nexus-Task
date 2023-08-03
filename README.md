@@ -48,3 +48,5 @@ $ npm start
 Which opens the app at http://localhost:3000 in your browser.
 
 ## Deployed version at: https://plp-smart-it.netlify.app/
+
+And dont forget, everything is a subject to change!!!
