@@ -14,12 +14,13 @@ However, the state is well managed and if you cycle trough pages it wont be dele
 I use props drilling approach with this task cause i started it so, i thought that the things will be more easy
 but when i get to 'filtering part + sorting' things get started more challenging :).
 As we speak of challenges, the real one for me was the desing! Since i am not designer it was hard for me to
-made things look fine! :)
+made things look fine! :). The point of the app is to show that the app is responsive, how filtering system works, how sorting system works
+and dynamicly calculated discount prise of the cards and rating.
 
 ### Task Summary:
 1. As a part of the task, i use "react-router-dom" to cycle trough pages.
 2. "react-icons" for icons wich are in 'Navbar': 'burger menu' :), icons on the footer mobile filter icon
-    and the cart.
+    for dynamicly rendered stars in the card and the cart.
 3. I use "node-sass" library for styling, i really like i'ts magic!
 4. "nanoid" library for generating unique id-s of the data objects wich 'id' later i use for react components rendering.
 5. "framer-motion" library for animate the mobile version of the 'navbar' and 'filter', later on i think
