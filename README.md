@@ -19,8 +19,8 @@ and dynamicly calculated discount prise of the cards and rating.
 
 ### Task Summary:
 1. As a part of the task, i use "react-router-dom" to cycle trough pages.
-2. "react-icons" for icons wich are in 'Navbar': 'burger menu' :), icons on the footer mobile filter icon
-    for dynamicly rendered stars in the card and the cart.
+2. "react-icons" for icons wich are in 'Navbar': 'burger menu' :), icons on the footer about 'social media', mobile filter 'hamburger' icon
+    for dynamicly rendered 'stars' in the card and the 'cart'.
 3. I use "node-sass" library for styling, i really like i'ts magic!
 4. "nanoid" library for generating unique id-s of the data objects wich 'id' later i use for react components rendering.
 5. "framer-motion" library for animate the mobile version of the 'navbar' and 'filter', later on i think
