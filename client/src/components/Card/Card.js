@@ -21,7 +21,7 @@ const Card = ({ item, setBackupProducts, setBuyedProducts }) => {
         return ratingArray;
     }
 
-    const setBackupProductsHandler = () => {
+    const setProductsHandler = () => {
         alert('Product added to cart')
         setBackupProducts(state => state.filter(x => x.id !== item.id));
         setBuyedProducts(state => state + 1)
@@ -54,7 +54,7 @@ const Card = ({ item, setBackupProducts, setBuyedProducts }) => {
                     <div className='card__details-stars'>
                         {calculateStars(item.rating).map(rating => rating)}
                     </div>
-                    <button onClick={setBackupProductsHandler}>Add to Cart</button>
+                    <button onClick={setProductsHandler}>Add to Cart</button>
                 </div>
 
             </div>

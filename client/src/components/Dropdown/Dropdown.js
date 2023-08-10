@@ -2,24 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import './Dropdown.scss';
 
-const Dropdown = ({ reset, setProducts }) => {
-    const [sortValue, setSortValue] = useState('');
-
-    useEffect(() => {
-        setSortValue('');
-    }, [reset])
-
-    useEffect(() => {
-        if (sortValue === 'priceAsc') {
-            setProducts(state => [...state.sort((a, b) => a.price - b.price)]);
-        } else if (sortValue === 'priceDesc') {
-            setProducts(state => [...state.sort((a, b) => b.price - a.price)]);
-        } else if (sortValue === 'alphaA-Z') {
-            setProducts(state => [...state.sort((a, b) => a.name.localeCompare(b.name))]);
-        } else if (sortValue === 'alphaZ-A') {
-            setProducts(state => [...state.sort((a, b) => b.name.localeCompare(a.name))]);
-        }
-    }, [sortValue, setProducts]);
+const Dropdown = ({ sortValue, setSortValue }) => {
 
     const onChangeHandler = (e) => {
         setSortValue(e.target.value);

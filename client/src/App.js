@@ -17,17 +17,10 @@ import tabletsData from './data/tabletsData';
 function App() {
   const [buyedProducts, setBuyedProducts] = useState(0);
 
-  const [backupLaptops, setBackupLaptops] = useState(laptopsData);
-  const [laptopsState, setLaptopsState] = useState(backupLaptops);
-
-  const [backupMonitors, setBackupMonitors] = useState(monitorsData);
-  const [monitorsState, setMonitorsState] = useState(backupMonitors);
-
-  const [backupPhones, setBackupPhones] = useState(phonesData);
-  const [phonesState, setPhonesState] = useState(backupPhones);
-
-  const [backupTablets, setBackupTablets] = useState(tabletsData);
-  const [tabletsState, setTabletsState] = useState(backupTablets);
+  const [laptopsState, setLaptopsState] = useState(laptopsData);
+  const [monitorsState, setMonitorsState] = useState(monitorsData);
+  const [phonesState, setPhonesState] = useState(phonesData);
+  const [tabletsState, setTabletsState] = useState(tabletsData);
 
   return (
     <div className="app">
@@ -38,8 +31,6 @@ function App() {
             <Laptops
               state={laptopsState}
               setCurrentState={setLaptopsState}
-              originalState={backupLaptops}
-              setBackupProducts={setBackupLaptops}
               setBuyedProducts={setBuyedProducts}
             />}
           />
@@ -48,8 +39,6 @@ function App() {
             <Monitors
               state={monitorsState}
               setCurrentState={setMonitorsState}
-              originalState={backupMonitors}
-              setBackupProducts={setBackupMonitors}
               setBuyedProducts={setBuyedProducts}
             />}
           />
@@ -58,8 +47,6 @@ function App() {
             <Phones
               state={phonesState}
               setCurrentState={setPhonesState}
-              originalState={backupPhones}
-              setBackupProducts={setBackupPhones}
               setBuyedProducts={setBuyedProducts}
             />}
           />
@@ -68,8 +55,6 @@ function App() {
             <Tablets
               state={tabletsState}
               setCurrentState={setTabletsState}
-              originalState={backupTablets}
-              setBackupProducts={setBackupTablets}
               setBuyedProducts={setBuyedProducts}
             />}
           />

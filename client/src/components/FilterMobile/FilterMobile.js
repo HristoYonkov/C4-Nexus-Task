@@ -5,43 +5,18 @@ import { motion } from 'framer-motion';
 
 import './FilterMobile.scss'
 
-const FilterMobile = ({ setCurrentState, originalState, minMaxPrice }) => {
+const FilterMobile = ({ minMaxPrice, setSelected, setFilteredPrice, filteredPrice, colors, setColors }) => {
     const [toggle, setToggle] = useState(false);
-    const [selected, setSelected] = useState([]);
-    const [colors, setColors] = useState({
-        white: false,
-        black: false,
-        blue: false
-    });
-    const [filteredPrice, setFilteredPrice] = useState({
-        price: minMaxPrice.min
-    });
 
     const maxPrice = minMaxPrice.max;
     const minPrice = minMaxPrice.min;
 
-    useEffect(() => {
-        setColors({ ...colors, white: false, black: false, blue: false });
-        setFilteredPrice(state => ({ ...state, price: minPrice }));
-        setSelected([]);
-    }, [originalState]);
-
-    useEffect(() => {
-        setCurrentState(originalState);
-        setCurrentState((state) => state.filter((x) => x.price >= filteredPrice.price));
-
-        if (selected.length > 0) {
-            setCurrentState(originalState.filter(({ color }) => selected.includes(color)));
-            setCurrentState((state) => state.filter((x) => x.price >= filteredPrice.price));
-        }
-    }, [selected, filteredPrice, originalState, setCurrentState]);
-
     const handleChangeColors = (e) => {
         if (e.target.checked) {
-            setColors({ ...colors, [e.target.value]: e.target.checked })
+            setColors({ ...colors, [e.target.value]: e.target.checked });
             setSelected(state => [...state, e.target.value]);
         } else {
-            setColors({ ...colors, [e.target.value]: e.target.checked })
+            setColors({ ...colors, [e.target.value]: e.target.checked });
             setSelected((state) => state.filter(x => x !== e.target.value));
         }
     }
