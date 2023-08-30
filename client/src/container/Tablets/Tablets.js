@@ -29,8 +29,8 @@ const Tablets = ({ state, setCurrentState, setBuyedProducts }) => {
         // setInterval(4);
     }, []);
 
-    useEffect(() => {
-    }, [state]);
+    // useEffect(() => {
+    // }, [state]);
 
     useEffect(() => {
         // filter products!!!
