@@ -30,9 +30,6 @@ const Laptops = ({ state, setCurrentState, setBuyedProducts }) => {
         // setInterval(4);
     }, []);
 
-    // useEffect(() => {
-    // }, [state]);
-
     useEffect(() => {
         // filter products!!!
         setProducts(state);
