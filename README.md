@@ -13,7 +13,7 @@ all states will be lost after refresh of the page!
 However, the state is well managed and if you cycle trough pages it wont be deleted!
 I use props drilling approach with this task cause i started it so, i thought that the things will be more easy
 but when i get to 'filtering part + sorting' things get started more challenging :).
-As we speak of challenges, the real one for me was the desing! Since i am not designer it was hard for me to
+As we speak of challenges, the real one for me was the design! Since i am not designer it was hard for me to
 made things look fine! :). The point of the app is to show that the app is responsive, how filtering system works, how sorting system works
 and dynamicly calculated discount prise of the cards and rating.
 
